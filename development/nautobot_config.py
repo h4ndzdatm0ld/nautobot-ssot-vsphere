@@ -293,7 +293,7 @@ PLUGINS_CONFIG = {
 
 # When determining the primary IP address for a device, IPv6 is preferred over IPv4 by default. Set this to True to
 # prefer IPv4 instead.
-PREFER_IPV4 = is_truthy(os.getenv("NAUTOBOT_PREFER_IPV4", False))
+PREFER_IPV4 = is_truthy(os.getenv("NAUTOBOT_PREFER_IPV4", True))
 
 # Rack elevation size defaults, in pixels. For best results, the ratio of width to height should be roughly 10:1.
 RACK_ELEVATION_DEFAULT_UNIT_HEIGHT = int(os.getenv("NAUTOBOT_RACK_ELEVATION_DEFAULT_UNIT_HEIGHT", 22))
