@@ -13,7 +13,8 @@ Contents
    :maxdepth: 1
 
    Home <self>
-   FAQ <faq>
+   Overview <overview.md>
+   FAQ <FAQ>
 
 Changelog
 =========

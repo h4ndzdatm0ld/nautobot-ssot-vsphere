@@ -1,3 +1,4 @@
+# noqa
 """Tasks for use with Invoke.
 
 (c) 2020-2021 Network To Code
@@ -11,6 +12,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 """
+
+# This code was copied from NTC Open source projects and modified slightly to match
+# the new name of the repository
 
 import os
 from distutils.util import strtobool
