@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../../index.html" class="icon icon-home"> Nautobot SSOT vSphere
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Nautobot SSOT vSphere</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/autoapi/nautobot_ssot_vsphere/diffsync/adapters/adapter_vsphere/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere">
+<span id="nautobot-ssot-vsphere-diffsync-adapters-adapter-vsphere"></span><h1><a class="reference internal" href="#module-nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere" title="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere</span></code></a><a class="headerlink" href="#module-nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere" title="Permalink to this headline"></a></h1>
+<p>Adapter for VM Ware vSphere objects.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync" title="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VsphereDiffSync</span></code></a></p></td>
+<td><p>Nautobot adapter for DiffSync.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.create_ipaddr" title="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.create_ipaddr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_ipaddr</span></code></a>(address: str)</p></td>
+<td><p>Create an IPV4 or IPV4 object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.get_disk_total" title="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.get_disk_total"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_disk_total</span></code></a>(disks: List)</p></td>
+<td><p>Calculcate total disk capacity.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.create_ipaddr">
+<span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.</span></span><span class="sig-name descname"><span class="pre">create_ipaddr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.create_ipaddr" title="Permalink to this definition"></a></dt>
+<dd><p>Create an IPV4 or IPV4 object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.get_disk_total">
+<span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.</span></span><span class="sig-name descname"><span class="pre">get_disk_total</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.get_disk_total" title="Permalink to this definition"></a></dt>
+<dd><p>Calculcate total disk capacity.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.</span></span><span class="sig-name descname"><span class="pre">VsphereDiffSync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../utilities/vsphere_client/index.html#nautobot_ssot_vsphere.utilities.vsphere_client.VsphereClient" title="nautobot_ssot_vsphere.utilities.vsphere_client.VsphereClient"><span class="pre">nautobot_ssot_vsphere.utilities.vsphere_client.VsphereClient</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_filter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="../shared/index.html#nautobot_ssot_vsphere.diffsync.adapters.shared.DiffSyncModelAdapters" title="nautobot_ssot_vsphere.diffsync.adapters.shared.DiffSyncModelAdapters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.diffsync.adapters.shared.DiffSyncModelAdapters</span></code></a></p>
+<p>Nautobot adapter for DiffSync.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_cluster_groups">
+<span class="sig-name descname"><span class="pre">load_cluster_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_cluster_groups" title="Permalink to this definition"></a></dt>
+<dd><p>Load Cluster Groups (DataCenters).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_virtualmachines">
+<span class="sig-name descname"><span class="pre">load_virtualmachines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_cluster</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_virtualmachines" title="Permalink to this definition"></a></dt>
+<dd><p>Load Virtual Machines.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_ip_addresses">
+<span class="sig-name descname"><span class="pre">load_ip_addresses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsphere_vm_interfaces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mac_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vminterface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_ip_addresses" title="Permalink to this definition"></a></dt>
+<dd><p>Load VM IP Addresses into Interfaces.</p>
+<p>Compare the current NIC MAC to grab any IP’s associated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_primary_ip">
+<span class="sig-name descname"><span class="pre">load_primary_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv4_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv6_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_virtualmachine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_primary_ip" title="Permalink to this definition"></a></dt>
+<dd><p>Determine Primary IP of Virtual Machine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_vm_interfaces">
+<span class="sig-name descname"><span class="pre">load_vm_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsphere_virtual_machine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vm_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_virtualmachine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_vm_interfaces" title="Permalink to this definition"></a></dt>
+<dd><p>Load VM Interfaces.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load_data" title="Permalink to this definition"></a></dt>
+<dd><p>Load all clusters from vSphere.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync.load" title="Permalink to this definition"></a></dt>
+<dd><p>Load data from vSphere.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

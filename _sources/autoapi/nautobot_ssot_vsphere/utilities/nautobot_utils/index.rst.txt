@@ -1,0 +1,53 @@
+:py:mod:`nautobot_ssot_vsphere.utilities.nautobot_utils`
+========================================================
+
+.. py:module:: nautobot_ssot_vsphere.utilities.nautobot_utils
+
+.. autoapi-nested-parse::
+
+   Nautobot Utils.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.utilities.nautobot_utils.create_ssot_tag
+   nautobot_ssot_vsphere.utilities.nautobot_utils.tag_object
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.utilities.nautobot_utils.TODAY
+
+
+.. py:data:: TODAY
+   
+
+   
+
+.. py:function:: create_ssot_tag()
+
+   Create vSphere SSoT Tag.
+
+
+.. py:function:: tag_object(nautobot_object: Any, custom_field: str = 'ssot-synced-from-vsphere', tag_name: str = 'SSoT Synced from vSphere')
+
+   Apply the given tag and custom field to the identified object.
+
+   Args:
+       nautobot_object (Any): Nautobot ORM Object
+       custom_field (str): Name of custom field to update
+       tag_name (Optional[str], optional): Tag name. Defaults to "SSoT Synced From vsphere".
+
+

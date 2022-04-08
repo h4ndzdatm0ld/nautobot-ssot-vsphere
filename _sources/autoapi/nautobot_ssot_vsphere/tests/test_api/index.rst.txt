@@ -1,0 +1,54 @@
+:py:mod:`nautobot_ssot_vsphere.tests.test_api`
+==============================================
+
+.. py:module:: nautobot_ssot_vsphere.tests.test_api
+
+.. autoapi-nested-parse::
+
+   Unit tests for nautobot_ssot_vsphere.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.test_api.PlaceholderAPITest
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.test_api.User
+
+
+.. py:data:: User
+   
+
+   
+
+.. py:class:: PlaceholderAPITest(methodName='runTest')
+
+   Bases: :py:obj:`django.test.TestCase`
+
+   Test the vSphere API.
+
+   .. py:method:: setUp(self)
+
+      Create a superuser and token for API calls.
+
+
+   .. py:method:: test_placeholder(self)
+
+      Verify that devices can be listed.
+
+
+

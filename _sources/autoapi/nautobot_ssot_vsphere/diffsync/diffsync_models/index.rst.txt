@@ -1,0 +1,370 @@
+:py:mod:`nautobot_ssot_vsphere.diffsync.diffsync_models`
+========================================================
+
+.. py:module:: nautobot_ssot_vsphere.diffsync.diffsync_models
+
+.. autoapi-nested-parse::
+
+   Diffsync Models.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras
+   nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup
+   nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster
+   nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface
+   nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress
+   nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine
+
+
+
+
+.. py:class:: DiffSyncExtras
+
+   Bases: :py:obj:`diffsync.DiffSyncModel`
+
+   Additional components to mix and subclass from with `DiffSyncModel`.
+
+   .. py:method:: ordered_delete(self, nautobot_object: Any)
+
+      Add to `objects_to_delete` for ordered deletion.
+
+      Args:
+          nautobot_object (Any): Any type of Nautobot object
+          safe_delete_status (Optional[str], optional): Status name, optional as some objects don't have status field. Defaults to None.
+
+
+
+.. py:class:: DiffSyncClusterGroup
+
+   Bases: :py:obj:`DiffSyncExtras`
+
+   Virtual Machine DiffSync model.
+
+   .. py:attribute:: _modelname
+      :annotation: = diffsync_clustergroup
+
+      
+
+   .. py:attribute:: _identifiers
+      :annotation: = ['name']
+
+      
+
+   .. py:attribute:: _attributes
+      :annotation: = []
+
+      
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+   .. py:method:: create(cls, diffsync, ids, attrs)
+      :classmethod:
+
+      Create ClusterGroup.
+
+
+   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+
+      Delete Cluster Group in Nautobot.
+
+
+
+.. py:class:: DiffSyncCluster
+
+   Bases: :py:obj:`DiffSyncExtras`
+
+   Cluster DiffSync model.
+
+   .. py:attribute:: _modelname
+      :annotation: = diffsync_cluster
+
+      
+
+   .. py:attribute:: _identifiers
+      :annotation: = ['name']
+
+      
+
+   .. py:attribute:: _attributes
+      :annotation: = ['cluster_type', 'group']
+
+      
+
+   .. py:attribute:: _children
+      
+
+      
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: cluster_type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: group
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: virtualmachines
+      :annotation: :List[DiffSyncVirtualMachine]
+
+      
+
+   .. py:method:: create(cls, diffsync, ids, attrs)
+      :classmethod:
+
+      Create Objects in Nautobot.
+
+
+   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+
+      Delete device in Nautobot.
+
+
+   .. py:method:: update(self, attrs)
+
+      Update devices in Nautbot based on Source.
+
+
+
+.. py:class:: DiffSyncVMInterface
+
+   Bases: :py:obj:`DiffSyncExtras`
+
+   VMInterface DiffSync Model.
+
+   .. py:attribute:: _modelname
+      :annotation: = diffsync_vminterface
+
+      
+
+   .. py:attribute:: _identifiers
+      :annotation: = ['name', 'virtual_machine']
+
+      
+
+   .. py:attribute:: _attributes
+      :annotation: = ['enabled', 'mac_address']
+
+      
+
+   .. py:attribute:: _children
+      
+
+      
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: virtual_machine
+      :annotation: :str
+
+      
+
+   .. py:attribute:: enabled
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: mac_address
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: ip_addresses
+      :annotation: :List[DiffSyncIpAddress]
+
+      
+
+   .. py:method:: create(cls, diffsync, ids, attrs)
+      :classmethod:
+
+      Create VirtualMachine VMInterface in Nautobot.
+
+
+   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+
+      Delete VMInterfaces from Virtual Machine.
+
+
+   .. py:method:: update(self, attrs)
+
+      Update VMInterface on Virtual Machine.
+
+
+
+.. py:class:: DiffSyncIpAddress
+
+   Bases: :py:obj:`DiffSyncExtras`
+
+   VMInterface DiffSync Model.
+
+   .. py:attribute:: _modelname
+      :annotation: = diffsync_ipaddress
+
+      
+
+   .. py:attribute:: _identifiers
+      :annotation: = ['ip_address', 'prefix_length']
+
+      
+
+   .. py:attribute:: _attributes
+      :annotation: = ['state', 'mac_address', 'vm_interface_name', 'vm_name']
+
+      
+
+   .. py:attribute:: ip_address
+      :annotation: :str
+
+      
+
+   .. py:attribute:: prefix_length
+      :annotation: :int
+
+      
+
+   .. py:attribute:: state
+      :annotation: :str
+
+      
+
+   .. py:attribute:: mac_address
+      :annotation: :str
+
+      
+
+   .. py:attribute:: vm_interface_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: vm_name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: create(cls, diffsync, ids, attrs)
+      :classmethod:
+
+      Create IP Address in Nautobot.
+
+
+   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+
+      Delete VMInterfaces from Virtual Machine.
+
+
+   .. py:method:: update(self, attrs)
+
+      Update VMInterface on Virtual Machine.
+
+
+
+.. py:class:: DiffSyncVirtualMachine
+
+   Bases: :py:obj:`DiffSyncExtras`
+
+   Virtual Machine DiffSync model.
+
+   .. py:attribute:: _modelname
+      :annotation: = diffsync_virtual_machine
+
+      
+
+   .. py:attribute:: _identifiers
+      :annotation: = ['name']
+
+      
+
+   .. py:attribute:: _attributes
+      :annotation: = ['status', 'vcpus', 'memory', 'disk', 'cluster', 'primary_ip4', 'primary_ip6']
+
+      
+
+   .. py:attribute:: _children
+      
+
+      
+
+   .. py:attribute:: name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: status
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: cluster
+      :annotation: :str
+
+      
+
+   .. py:attribute:: vcpus
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: memory
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: disk
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: primary_ip4
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: primary_ip6
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: interfaces
+      :annotation: :List[DiffSyncVMInterface]
+
+      
+
+   .. py:method:: create(cls, diffsync, ids, attrs)
+      :classmethod:
+
+      Create VirtualMachine in Nautobot.
+
+
+   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+
+      Delete Virtual Machine.
+
+
+   .. py:method:: update(self, attrs)
+
+      Update Virtual Machine.
+
+
+

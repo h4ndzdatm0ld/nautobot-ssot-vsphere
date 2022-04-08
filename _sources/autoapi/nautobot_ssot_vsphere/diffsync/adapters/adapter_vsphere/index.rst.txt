@@ -1,0 +1,87 @@
+:py:mod:`nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere`
+=================================================================
+
+.. py:module:: nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere
+
+.. autoapi-nested-parse::
+
+   Adapter for VM Ware vSphere objects.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.VsphereDiffSync
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.create_ipaddr
+   nautobot_ssot_vsphere.diffsync.adapters.adapter_vsphere.get_disk_total
+
+
+
+.. py:function:: create_ipaddr(address: str)
+
+   Create an IPV4 or IPV4 object.
+
+
+.. py:function:: get_disk_total(disks: List)
+
+   Calculcate total disk capacity.
+
+
+.. py:class:: VsphereDiffSync(job, sync, client: nautobot_ssot_vsphere.utilities.vsphere_client.VsphereClient, cluster_filter, *args, **kwargs)
+
+   Bases: :py:obj:`nautobot_ssot_vsphere.diffsync.adapters.shared.DiffSyncModelAdapters`
+
+   Nautobot adapter for DiffSync.
+
+   .. py:method:: load_cluster_groups(self)
+
+      Load Cluster Groups (DataCenters).
+
+
+   .. py:method:: load_virtualmachines(self, cluster, diffsync_cluster)
+
+      Load Virtual Machines.
+
+
+   .. py:method:: load_ip_addresses(self, vsphere_vm_interfaces, mac_address, diffsync_vminterface)
+
+      Load VM IP Addresses into Interfaces.
+
+      Compare the current NIC MAC to grab any IP's associated.
+
+
+   .. py:method:: load_primary_ip(self, ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine)
+
+      Determine Primary IP of Virtual Machine.
+
+
+   .. py:method:: load_vm_interfaces(self, vsphere_virtual_machine, vm_id, diffsync_virtualmachine)
+
+      Load VM Interfaces.
+
+
+   .. py:method:: load_data(self)
+
+      Load all clusters from vSphere.
+
+
+   .. py:method:: load(self)
+
+      Load data from vSphere.
+
+
+

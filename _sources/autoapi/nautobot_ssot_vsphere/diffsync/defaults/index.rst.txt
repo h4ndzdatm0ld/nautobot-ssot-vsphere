@@ -1,0 +1,69 @@
+:py:mod:`nautobot_ssot_vsphere.diffsync.defaults`
+=================================================
+
+.. py:module:: nautobot_ssot_vsphere.diffsync.defaults
+
+.. autoapi-nested-parse::
+
+   Default settings to use across different files.
+
+
+
+Module Contents
+---------------
+
+.. py:data:: CONFIG
+   
+
+   
+
+.. py:data:: DEFAULT_VSPHERE_TYPE
+   
+
+   
+
+.. py:data:: ENFORCE_CLUSTER_GROUP_TOP_LEVEL
+   
+
+   
+
+.. py:data:: VSPHERE_USERNAME
+   
+
+   
+
+.. py:data:: VSPHERE_PASSWORD
+   
+
+   
+
+.. py:data:: VSPHERE_VERIFY_SSL
+   
+
+   
+
+.. py:data:: VSPHERE_URI
+   
+
+   
+
+.. py:data:: DEFAULT_VM_STATUS_MAP
+   
+
+   
+
+.. py:data:: DEFAULT_IP_STATUS_MAP
+   
+
+   
+
+.. py:data:: ENABLED_VM_INTERFACE_MAP
+   
+
+   
+
+.. py:data:: PRIMARY_IP_SORT_BY
+   
+
+   
+

@@ -1,0 +1,65 @@
+:py:mod:`nautobot_ssot_vsphere.diffsync.adapters.shared`
+========================================================
+
+.. py:module:: nautobot_ssot_vsphere.diffsync.adapters.shared
+
+.. autoapi-nested-parse::
+
+   Shared Models.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   adapter_shared/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.diffsync.adapters.shared.DiffSyncModelAdapters
+
+
+
+
+.. py:class:: DiffSyncModelAdapters(name=None)
+
+   Bases: :py:obj:`diffsync.DiffSync`
+
+   Shared adapter for DiffSync Models.
+
+   .. py:attribute:: diffsync_virtual_machine
+      
+
+      
+
+   .. py:attribute:: diffsync_clustergroup
+      
+
+      
+
+   .. py:attribute:: diffsync_cluster
+      
+
+      
+
+   .. py:attribute:: diffsync_vminterface
+      
+
+      
+
+   .. py:attribute:: diffsync_ipaddress
+      
+
+      
+
+

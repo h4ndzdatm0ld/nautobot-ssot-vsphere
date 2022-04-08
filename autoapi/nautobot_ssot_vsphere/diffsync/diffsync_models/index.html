@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nautobot_ssot_vsphere.diffsync.diffsync_models &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> Nautobot SSOT vSphere
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">Home</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Nautobot SSOT vSphere</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/nautobot_ssot_vsphere/diffsync/diffsync_models/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nautobot_ssot_vsphere.diffsync.diffsync_models">
+<span id="nautobot-ssot-vsphere-diffsync-diffsync-models"></span><h1><a class="reference internal" href="#module-nautobot_ssot_vsphere.diffsync.diffsync_models" title="nautobot_ssot_vsphere.diffsync.diffsync_models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models</span></code></a><a class="headerlink" href="#module-nautobot_ssot_vsphere.diffsync.diffsync_models" title="Permalink to this headline"></a></h1>
+<p>Diffsync Models.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncExtras</span></code></a></p></td>
+<td><p>Additional components to mix and subclass from with <cite>DiffSyncModel</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncClusterGroup</span></code></a></p></td>
+<td><p>Virtual Machine DiffSync model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncCluster</span></code></a></p></td>
+<td><p>Cluster DiffSync model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncVMInterface</span></code></a></p></td>
+<td><p>VMInterface DiffSync Model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncIpAddress</span></code></a></p></td>
+<td><p>VMInterface DiffSync Model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncVirtualMachine</span></code></a></p></td>
+<td><p>Virtual Machine DiffSync model.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models.</span></span><span class="sig-name descname"><span class="pre">DiffSyncExtras</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">diffsync.DiffSyncModel</span></code></p>
+<p>Additional components to mix and subclass from with <cite>DiffSyncModel</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras.ordered_delete">
+<span class="sig-name descname"><span class="pre">ordered_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nautobot_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras.ordered_delete" title="Permalink to this definition"></a></dt>
+<dd><p>Add to <cite>objects_to_delete</cite> for ordered deletion.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>nautobot_object (Any): Any type of Nautobot object
+safe_delete_status (Optional[str], optional): Status name, optional as some objects don’t have status field. Defaults to None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models.</span></span><span class="sig-name descname"><span class="pre">DiffSyncClusterGroup</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncExtras</span></code></a></p>
+<p>Virtual Machine DiffSync model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup._modelname">
+<span class="sig-name descname"><span class="pre">_modelname</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">diffsync_clustergroup</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup._modelname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup._identifiers">
+<span class="sig-name descname"><span class="pre">_identifiers</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['name']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup._identifiers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup._attributes">
+<span class="sig-name descname"><span class="pre">_attributes</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">[]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup._attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.create" title="Permalink to this definition"></a></dt>
+<dd><p>Create ClusterGroup.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete Cluster Group in Nautobot.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models.</span></span><span class="sig-name descname"><span class="pre">DiffSyncCluster</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncExtras</span></code></a></p>
+<p>Cluster DiffSync model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._modelname">
+<span class="sig-name descname"><span class="pre">_modelname</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">diffsync_cluster</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._modelname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._identifiers">
+<span class="sig-name descname"><span class="pre">_identifiers</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['name']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._identifiers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._attributes">
+<span class="sig-name descname"><span class="pre">_attributes</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['cluster_type',</span> <span class="pre">'group']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._children">
+<span class="sig-name descname"><span class="pre">_children</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster._children" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.cluster_type">
+<span class="sig-name descname"><span class="pre">cluster_type</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.cluster_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.group">
+<span class="sig-name descname"><span class="pre">group</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.group" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.virtualmachines">
+<span class="sig-name descname"><span class="pre">virtualmachines</span></span><em class="property"><span class="w"> </span><span class="pre">:List[DiffSyncVirtualMachine]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.virtualmachines" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.create" title="Permalink to this definition"></a></dt>
+<dd><p>Create Objects in Nautobot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete device in Nautobot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update devices in Nautbot based on Source.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models.</span></span><span class="sig-name descname"><span class="pre">DiffSyncVMInterface</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncExtras</span></code></a></p>
+<p>VMInterface DiffSync Model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._modelname">
+<span class="sig-name descname"><span class="pre">_modelname</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">diffsync_vminterface</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._modelname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._identifiers">
+<span class="sig-name descname"><span class="pre">_identifiers</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['name',</span> <span class="pre">'virtual_machine']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._identifiers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._attributes">
+<span class="sig-name descname"><span class="pre">_attributes</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['enabled',</span> <span class="pre">'mac_address']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._children">
+<span class="sig-name descname"><span class="pre">_children</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface._children" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.virtual_machine">
+<span class="sig-name descname"><span class="pre">virtual_machine</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.virtual_machine" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.enabled">
+<span class="sig-name descname"><span class="pre">enabled</span></span><em class="property"><span class="w"> </span><span class="pre">:bool</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.enabled" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.mac_address">
+<span class="sig-name descname"><span class="pre">mac_address</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.mac_address" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.ip_addresses">
+<span class="sig-name descname"><span class="pre">ip_addresses</span></span><em class="property"><span class="w"> </span><span class="pre">:List[DiffSyncIpAddress]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.ip_addresses" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.create" title="Permalink to this definition"></a></dt>
+<dd><p>Create VirtualMachine VMInterface in Nautobot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete VMInterfaces from Virtual Machine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update VMInterface on Virtual Machine.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models.</span></span><span class="sig-name descname"><span class="pre">DiffSyncIpAddress</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncExtras</span></code></a></p>
+<p>VMInterface DiffSync Model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress._modelname">
+<span class="sig-name descname"><span class="pre">_modelname</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">diffsync_ipaddress</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress._modelname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress._identifiers">
+<span class="sig-name descname"><span class="pre">_identifiers</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['ip_address',</span> <span class="pre">'prefix_length']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress._identifiers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress._attributes">
+<span class="sig-name descname"><span class="pre">_attributes</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['state',</span> <span class="pre">'mac_address',</span> <span class="pre">'vm_interface_name',</span> <span class="pre">'vm_name']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress._attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.ip_address">
+<span class="sig-name descname"><span class="pre">ip_address</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.ip_address" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.prefix_length">
+<span class="sig-name descname"><span class="pre">prefix_length</span></span><em class="property"><span class="w"> </span><span class="pre">:int</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.prefix_length" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.state">
+<span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.state" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.mac_address">
+<span class="sig-name descname"><span class="pre">mac_address</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.mac_address" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.vm_interface_name">
+<span class="sig-name descname"><span class="pre">vm_interface_name</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.vm_interface_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.vm_name">
+<span class="sig-name descname"><span class="pre">vm_name</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.vm_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.create" title="Permalink to this definition"></a></dt>
+<dd><p>Create IP Address in Nautobot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete VMInterfaces from Virtual Machine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update VMInterface on Virtual Machine.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.diffsync.diffsync_models.</span></span><span class="sig-name descname"><span class="pre">DiffSyncVirtualMachine</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras" title="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffSyncExtras</span></code></a></p>
+<p>Virtual Machine DiffSync model.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._modelname">
+<span class="sig-name descname"><span class="pre">_modelname</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">diffsync_virtual_machine</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._modelname" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._identifiers">
+<span class="sig-name descname"><span class="pre">_identifiers</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['name']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._identifiers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._attributes">
+<span class="sig-name descname"><span class="pre">_attributes</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['status',</span> <span class="pre">'vcpus',</span> <span class="pre">'memory',</span> <span class="pre">'disk',</span> <span class="pre">'cluster',</span> <span class="pre">'primary_ip4',</span> <span class="pre">'primary_ip6']</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._attributes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._children">
+<span class="sig-name descname"><span class="pre">_children</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine._children" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.status">
+<span class="sig-name descname"><span class="pre">status</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.status" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.cluster">
+<span class="sig-name descname"><span class="pre">cluster</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.cluster" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.vcpus">
+<span class="sig-name descname"><span class="pre">vcpus</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[int]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.vcpus" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.memory">
+<span class="sig-name descname"><span class="pre">memory</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[int]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.memory" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.disk">
+<span class="sig-name descname"><span class="pre">disk</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[int]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.disk" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.primary_ip4">
+<span class="sig-name descname"><span class="pre">primary_ip4</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.primary_ip4" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.primary_ip6">
+<span class="sig-name descname"><span class="pre">primary_ip6</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.primary_ip6" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.interfaces">
+<span class="sig-name descname"><span class="pre">interfaces</span></span><em class="property"><span class="w"> </span><span class="pre">:List[DiffSyncVMInterface]</span></em><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.interfaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.create" title="Permalink to this definition"></a></dt>
+<dd><p>Create VirtualMachine in Nautobot.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Delete Virtual Machine.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update Virtual Machine.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

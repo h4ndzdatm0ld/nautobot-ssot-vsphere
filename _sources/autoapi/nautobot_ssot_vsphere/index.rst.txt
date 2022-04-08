@@ -1,0 +1,145 @@
+:py:mod:`nautobot_ssot_vsphere`
+===============================
+
+.. py:module:: nautobot_ssot_vsphere
+
+.. autoapi-nested-parse::
+
+   Plugin declaration for nautobot_ssot_vsphere.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   diffsync/index.rst
+   management/index.rst
+   tests/index.rst
+   utilities/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   jobs/index.rst
+   signals/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.NautobotSsotVsphereConfig
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.nautobot_database_ready_callback
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.__version__
+   nautobot_ssot_vsphere.config
+
+
+.. py:function:: nautobot_database_ready_callback(sender, *, apps, **kwargs)
+
+   Callback function triggered by the nautobot_database_ready signal when the Nautobot database is fully ready.
+
+
+.. py:data:: __version__
+   
+
+   
+
+.. py:class:: NautobotSsotVsphereConfig(app_name, app_module)
+
+   Bases: :py:obj:`nautobot.extras.plugins.PluginConfig`
+
+   Plugin configuration for the nautobot_ssot_vsphere plugin.
+
+   .. py:attribute:: name
+      :annotation: = nautobot_ssot_vsphere
+
+      
+
+   .. py:attribute:: verbose_name
+      :annotation: = Nautobot SSoT vSphere
+
+      
+
+   .. py:attribute:: version
+      
+
+      
+
+   .. py:attribute:: author
+      :annotation: = h4ndzdatm0ld
+
+      
+
+   .. py:attribute:: description
+      :annotation: = Nautobot SSoT vSphere.
+
+      
+
+   .. py:attribute:: base_url
+      :annotation: = nautobot-ssot-vsphere
+
+      
+
+   .. py:attribute:: required_settings
+      :annotation: = ['VSPHERE_URI', 'VSPHERE_VERIFY_SSL', 'VSPHERE_PASSWORD', 'VSPHERE_USERNAME']
+
+      
+
+   .. py:attribute:: min_version
+      :annotation: = 1.2.0
+
+      
+
+   .. py:attribute:: max_version
+      :annotation: = 1.9999
+
+      
+
+   .. py:attribute:: default_settings
+      
+
+      
+
+   .. py:attribute:: caching_config
+      
+
+      
+
+   .. py:method:: ready(self)
+
+      Ready signal.
+
+
+
+.. py:data:: config
+   
+
+   
+

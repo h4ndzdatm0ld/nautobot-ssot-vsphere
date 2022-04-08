@@ -1,0 +1,42 @@
+:py:mod:`nautobot_ssot_vsphere.signals`
+=======================================
+
+.. py:module:: nautobot_ssot_vsphere.signals
+
+.. autoapi-nested-parse::
+
+   Signal handlers for nautobot_ssot_vsphere.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.signals.create_custom_field
+   nautobot_ssot_vsphere.signals.nautobot_database_ready_callback
+
+
+
+.. py:function:: create_custom_field(field_name: str, label: str, models: List, apps, cf_type: Optional[str] = 'type_date')
+
+   Create custom field on a given model instance type.
+
+   Args:
+       field_name (str): Field Name
+       label (str): Label description
+       models (List): List of Django Models
+       apps: Django Apps
+       cf_type: (str, optional): Type of Field. Supports 'type_text' or 'type_date'. Defaults to 'type_date'.
+
+
+.. py:function:: nautobot_database_ready_callback(sender, *, apps, **kwargs)
+
+   Callback function triggered by the nautobot_database_ready signal when the Nautobot database is fully ready.
+
+

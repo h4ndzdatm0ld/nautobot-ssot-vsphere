@@ -1,0 +1,132 @@
+:py:mod:`nautobot_ssot_vsphere.jobs`
+====================================
+
+.. py:module:: nautobot_ssot_vsphere.jobs
+
+.. autoapi-nested-parse::
+
+   vSphere Data Target Job.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.jobs.OptionalObjectVar
+   nautobot_ssot_vsphere.jobs.VspherecDataSource
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.jobs.name
+   nautobot_ssot_vsphere.jobs.jobs
+
+
+.. py:data:: name
+   :annotation: = SSoT - Virtualization
+
+   
+
+.. py:class:: OptionalObjectVar(model=None, display_field='display', query_params=None, null_option=None, *args, **kwargs)
+
+   Bases: :py:obj:`nautobot.extras.jobs.ScriptVariable`
+
+   Custom implementation of an Optional ObjectVar.
+
+   An object primary key is returned and accessible in job kwargs.
+
+   .. py:attribute:: form_field
+      
+
+      
+
+
+.. py:class:: VspherecDataSource
+
+   Bases: :py:obj:`nautobot_ssot.jobs.base.DataSource`, :py:obj:`nautobot.extras.jobs.Job`
+
+   Job syncing data from vSphere to Nautobot.
+
+   .. py:class:: Meta
+
+      Metadata about this Job.
+
+      .. py:attribute:: name
+         :annotation: = VMWare vSphere ⟹ Nautobot
+
+         
+
+      .. py:attribute:: data_source
+         :annotation: = VMWare vSphere
+
+         
+
+      .. py:attribute:: data_source_icon
+         
+
+         
+
+      .. py:attribute:: description
+         :annotation: = Sync data from VMWare vSphere into Nautobot.
+
+         
+
+      .. py:attribute:: field_order
+         :annotation: = ['debug', 'sync_vsphere_tagged_only', 'dry_run']
+
+         
+
+
+   .. py:attribute:: debug
+      
+
+      
+
+   .. py:attribute:: sync_vsphere_tagged_only
+      
+
+      
+
+   .. py:attribute:: cluster_filter
+      
+
+      
+
+   .. py:method:: data_mappings(cls)
+      :classmethod:
+
+      List describing the data mappings involved in this DataSource.
+
+
+   .. py:method:: config_information(cls)
+      :classmethod:
+
+      Dictionary describing the configuration of this DataSource.
+
+
+   .. py:method:: log_debug(self, message)
+
+      Conditionally log a debug message.
+
+
+   .. py:method:: sync_data(self)
+
+      Sync a device data from vSphere into Nautobot.
+
+
+
+.. py:data:: jobs
+   
+
+   
+

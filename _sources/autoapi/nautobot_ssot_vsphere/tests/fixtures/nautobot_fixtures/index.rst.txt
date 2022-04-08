@@ -1,0 +1,67 @@
+:py:mod:`nautobot_ssot_vsphere.tests.fixtures.nautobot_fixtures`
+================================================================
+
+.. py:module:: nautobot_ssot_vsphere.tests.fixtures.nautobot_fixtures
+
+.. autoapi-nested-parse::
+
+   Nautobot Object Fixtures.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.fixtures.nautobot_fixtures.create_cluster_group
+   nautobot_ssot_vsphere.tests.fixtures.nautobot_fixtures.create_cluster_type
+   nautobot_ssot_vsphere.tests.fixtures.nautobot_fixtures.create_cluster
+   nautobot_ssot_vsphere.tests.fixtures.nautobot_fixtures.create_env
+
+
+
+.. py:function:: create_cluster_group(name: str = 'Development Cluster Group')
+
+   Create ClusterGroup.
+
+   Args:
+       name (str, optional): _description_. Defaults to "Development Cluster Group".
+
+   Returns:
+       ClusterGroup: ClusterGroup
+
+
+.. py:function:: create_cluster_type(name: str = 'VMWare vSphere')
+
+   _summary_
+
+   Args:
+       name (str, optional): _description_. Defaults to "VMWare vSphere".
+
+   Returns:
+       _type_: _description_
+
+
+.. py:function:: create_cluster(name: str = 'Development Cluster', cluster_type: str = 'VMWare vSphere', diffsync_clustergroup: str = 'Development DataCenter')
+
+   _summary_
+
+   Args:
+       name (str, optional): _description_. Defaults to "Development Cluster".
+       cluster_type (str, optional): _description_. Defaults to "VMWare vSphere".
+       diffsync_clustergroup (str, optional): _description_. Defaults to "Development DataCenter".
+
+   Returns:
+       _type_: _description_
+
+
+.. py:function:: create_env()
+
+   Create Env.
+
+

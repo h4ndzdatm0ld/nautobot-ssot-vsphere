@@ -1,0 +1,36 @@
+:py:mod:`nautobot_ssot_vsphere.tests.test_basic`
+================================================
+
+.. py:module:: nautobot_ssot_vsphere.tests.test_basic
+
+.. autoapi-nested-parse::
+
+   Basic tests that do not require Django.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.test_basic.TestVersion
+
+
+
+
+.. py:class:: TestVersion(methodName='runTest')
+
+   Bases: :py:obj:`unittest.TestCase`
+
+   Test Version is the same.
+
+   .. py:method:: test_version(self)
+
+      Verify that pyproject.toml version is same as version specified in the package.
+
+
+

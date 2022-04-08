@@ -1,0 +1,109 @@
+:py:mod:`nautobot_ssot_vsphere.utilities.vsphere_client`
+========================================================
+
+.. py:module:: nautobot_ssot_vsphere.utilities.vsphere_client
+
+.. autoapi-nested-parse::
+
+   Extending vSphere SDK.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.utilities.vsphere_client.VsphereClient
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.utilities.vsphere_client.LOGGER
+
+
+.. py:data:: LOGGER
+   
+
+   
+
+.. py:class:: VsphereClient(vsphere_uri: str = defaults.VSPHERE_URI, username: str = defaults.VSPHERE_USERNAME, password: str = defaults.VSPHERE_PASSWORD, verify_ssl: bool = is_truthy(defaults.VSPHERE_VERIFY_SSL))
+
+   Class for interacting with VMWare vSphere.
+
+   .. py:method:: _request(self, method: str, path: str, **kwargs)
+
+      Return a response object after making a request to by other methods.
+
+      Args:
+          method (str): Request method to call in self.session.
+          path (str): uri path to call.
+
+      Returns:
+          :class:`~requests.Response`: Response from the API.
+
+
+   .. py:method:: get_vms(self) -> Dict
+
+      Get VMs.
+
+
+   .. py:method:: get_vms_from_cluster(self, cluster: str) -> Dict
+
+      Get VMs.
+
+
+   .. py:method:: get_vms_from_dc(self, datacenter: str) -> Dict
+
+      Get VMs.
+
+
+   .. py:method:: get_datacenters(self) -> Dict
+
+      Get datacenters.
+
+
+   .. py:method:: get_datacenter_details(self, datacenter: str) -> Dict
+
+      Get datacenters.
+
+
+   .. py:method:: get_clusters(self) -> Dict
+
+      Get Clusters.
+
+
+   .. py:method:: get_clusters_from_dc(self, datacenter: str) -> Dict
+
+      Get Clusters.
+
+
+   .. py:method:: get_cluster_details(self, cluster_name: str) -> Dict
+
+      Get Clusters.
+
+
+   .. py:method:: get_vm_details(self, vm_id: str) -> Dict
+
+      Get all VMs details.
+
+
+   .. py:method:: get_vm_interfaces(self, vm_id: str) -> Dict
+
+      Get all VM interfaces.
+
+
+   .. py:method:: get_host(self)
+
+      Get Host.
+
+
+

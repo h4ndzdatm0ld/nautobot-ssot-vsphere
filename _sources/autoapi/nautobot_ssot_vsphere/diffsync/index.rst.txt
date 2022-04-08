@@ -1,0 +1,30 @@
+:py:mod:`nautobot_ssot_vsphere.diffsync`
+========================================
+
+.. py:module:: nautobot_ssot_vsphere.diffsync
+
+.. autoapi-nested-parse::
+
+   Diffsync.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   adapters/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   defaults/index.rst
+   diffsync_models/index.rst
+
+

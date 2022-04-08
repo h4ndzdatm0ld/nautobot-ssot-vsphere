@@ -1,0 +1,30 @@
+:py:mod:`nautobot_ssot_vsphere.tests`
+=====================================
+
+.. py:module:: nautobot_ssot_vsphere.tests
+
+.. autoapi-nested-parse::
+
+   Unit tests for nautobot_ssot_vsphere plugin.
+
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   fixtures/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test_api/index.rst
+   test_basic/index.rst
+
+

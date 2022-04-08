@@ -1,0 +1,117 @@
+:py:mod:`nautobot_ssot_vsphere.diffsync.adapters.adapter_nautobot`
+==================================================================
+
+.. py:module:: nautobot_ssot_vsphere.diffsync.adapters.adapter_nautobot
+
+.. autoapi-nested-parse::
+
+   Adapter for Nautobot objects.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.diffsync.adapters.adapter_nautobot.NautobotDiffSync
+
+
+
+
+.. py:class:: NautobotDiffSync(job, sync, sync_vsphere_tagged_only: bool, cluster_filter: nautobot.virtualization.models.Cluster, *args, **kwargs)
+
+   Bases: :py:obj:`nautobot_ssot_vsphere.diffsync.adapters.shared.DiffSyncModelAdapters`
+
+   Nautobot adapter for DiffSync.
+
+   .. py:attribute:: objects_to_delete
+      
+
+      
+
+   .. py:attribute:: _cluster
+      :annotation: :ClassVar[Any]
+
+      
+
+   .. py:attribute:: _clustergroup
+      :annotation: :ClassVar[Any]
+
+      
+
+   .. py:attribute:: _virtualmachine
+      :annotation: :ClassVar[Any]
+
+      
+
+   .. py:attribute:: _vminterface
+      :annotation: :ClassVar[Any]
+
+      
+
+   .. py:attribute:: _ipaddress
+      :annotation: :ClassVar[Any]
+
+      
+
+   .. py:method:: sync_complete(self, source: diffsync.DiffSync, *args, **kwargs)
+
+      Clean up function for DiffSync sync.
+
+      Once the sync is complete, this function runs deleting any objects
+      from Nautobot that need to be deleted in a specific order.
+
+      Args:
+          source (DiffSync): DiffSync
+
+
+   .. py:method:: get_initial_cluster(self, ssot_tag: nautobot.extras.models.Tag)
+
+      Identify the site objects based on user defined job inputs.
+
+      Args:
+          ssot_tag (Tag): Tag used for filtering
+
+
+   .. py:method:: load_clustergroups(self)
+
+      Load Cluster Groups.
+
+      This can be impacted by the Cluster Filter.
+
+
+   .. py:method:: load_virtual_machines(self)
+
+      Load Nautobot Virtual Machines.
+
+
+   .. py:method:: load_ipaddress(self, nautobot_vm_interface, diffsync_vminterface, diffsync_vm_object)
+
+      Load Interface IP Addresses.
+
+
+   .. py:method:: load_vm_interfaces(self, nautobot_virtual_machine, diffsync_vm_object)
+
+      Load VM Interfaces.
+
+
+   .. py:method:: load_clusters(self, ssot_tag)
+
+      Load Clusters.
+
+
+   .. py:method:: load_data(self)
+
+      Add Nautobot Site objects as DiffSync Location models.
+
+
+   .. py:method:: load(self)
+
+      Load data from Nautobot.
+
+
+
