@@ -96,7 +96,7 @@ class VspherecDataSource(DataSource, Job):
 
     @classmethod
     def config_information(cls):
-        """Dictionary describing the configuration of this DataSource."""
+        """Configuration of this DataSource."""
         return {
             "vSphere URI": defaults.VSPHERE_URI,
             "vSphere Username": defaults.VSPHERE_USERNAME,

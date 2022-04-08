@@ -40,7 +40,7 @@ def create_custom_field(field_name: str, label: str, models: List, apps, cf_type
 
 
 def nautobot_database_ready_callback(sender, *, apps, **kwargs):  # pylint: disable=unused-argument
-    """Callback function triggered by the nautobot_database_ready signal when the Nautobot database is fully ready."""
+    """Trigger when the Nautobot database is fully ready."""
     # pylint: disable=invalid-name
     # Device = apps.get_model("dcim", "Device")
     # DeviceType = apps.get_model("dcim", "DeviceType")

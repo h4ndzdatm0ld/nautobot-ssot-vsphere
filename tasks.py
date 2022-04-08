@@ -81,7 +81,7 @@ def task(function=None, *args, **kwargs):
 
 
 def docker_compose(context, command, **kwargs):
-    """Helper function for running a specific docker-compose command with all appropriate parameters and environment.
+    """Function for running a specific docker-compose command with all appropriate parameters and environment.
 
     Args:
         context (obj): Used to run specific commands
@@ -105,7 +105,7 @@ def docker_compose(context, command, **kwargs):
 
 
 def run_command(context, command, **kwargs):
-    """Wrapper to run a command locally or inside the nautobot container."""
+    """Run a command locally or inside the nautobot container."""
     if is_truthy(context.nautobot_ssot_vsphere.local):
         context.run(command, **kwargs)
     else:
@@ -276,7 +276,7 @@ def migrate(context):
 @task(help={})
 def post_upgrade(context):
     """
-    Performs Nautobot common post-upgrade operations using a single entrypoint.
+    Perform Nautobot common post-upgrade operations using a single entrypoint.
 
     This will run the following management commands with default settings, in order:
 
