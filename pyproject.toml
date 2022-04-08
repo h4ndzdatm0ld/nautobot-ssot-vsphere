@@ -43,7 +43,6 @@ myst-parser = "^0.17.0"
 sphinx-rtd-theme = "^1.0.0"
 sphinx-autoapi = "^1.8.4"
 jedi = "^0.18.1"
-toml = "^0.10.2"
 
 [tool.poetry.extras]
 nautobot = ["nautobot"]
@@ -86,6 +85,7 @@ no-docstring-rgx="^(_|test_|Meta$)"
 disable = """,
     line-too-long,
     bad-continuation,
+    duplicate-code,
     """
 
 [tool.pylint.miscellaneous]
