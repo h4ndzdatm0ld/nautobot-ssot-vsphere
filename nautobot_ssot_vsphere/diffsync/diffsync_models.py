@@ -180,10 +180,10 @@ class DiffSyncVMInterface(DiffSyncExtras):
                 name=self.name,
                 virtual_machine=VirtualMachine.objects.get(name=self.virtual_machine),
             )
+            vm_interface.enabled = attrs["enabled"]
+
             if attrs.get("mac_address"):
                 vm_interface.mac_address = attrs["mac_address"]
-            if attrs.get("enabled"):
-                vm_interface.enabled = attrs["enabled"]
             # Tag and Update time stamp on object
             tag_object(vm_interface)
             # Call the super().update() method to update the in-memory DiffSyncModel instance
@@ -332,9 +332,9 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
         """Update Virtual Machine."""
         try:
             virtual_machine = VirtualMachine.objects.get(name=self.name)
-            if attrs.get("status") == "Active":
-                if not virtual_machine.status == "Active":
-                    virtual_machine.status = Status.objects.get(name="Active")
+            if attrs.get("status"):
+                vm_status = Status.objects.get(name=attrs.get("status"))
+                virtual_machine.status = vm_status
             if attrs.get("vcpus"):
                 virtual_machine.vcpus = attrs["vcpus"]
             if attrs.get("memory"):

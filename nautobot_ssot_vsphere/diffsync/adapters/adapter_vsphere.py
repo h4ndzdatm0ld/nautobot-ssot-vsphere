@@ -139,7 +139,7 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 self.diffsync_vminterface,
                 {"name": nic["value"]["label"], "virtual_machine": diffsync_virtualmachine.name},
                 {
-                    "enabled": defaults.ENABLED_VM_INTERFACE_MAP[nic["value"]["state"]],
+                    "enabled": defaults.VSPHERE_VM_INTERFACE_MAP[nic["value"]["state"]],
                     "mac_address": nic_mac,
                 },
             )

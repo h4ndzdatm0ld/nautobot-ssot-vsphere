@@ -17,6 +17,8 @@ ClusterGroup (DataCenter)
         └── VMInterface-1 (NIC Interface)
 ```
 
+A configuration setting `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` is defaulted to true, enforcing this pattern. If you'd like to allow `Clusters` to be the `Top Level`, simply set this setting to False.
+
 ### Measurements of Capacity (Disks)
 
 The disk total is an aggregate of all virtual disks available on the virtual machine.

@@ -1,6 +1,6 @@
 # Nautobot SSoT vSphere
 
-A plugin for [Nautobot](https://github.com/nautobot/nautobot).
+A plugin for [Nautobot](https://github.com/nautobot/nautobot) that leverages the SSoT plugin to create Virtual Machines, VMInterfaces, IPAddresses, Clusters, and Cluster Groups from VMWare vSphere.
 
 ## The future of Virtual Machine In Nautobot
 
@@ -44,10 +44,12 @@ PLUGINS_CONFIG = {
 The plugin behavior can be controlled with the following list of settings
 
 ```bash
-DEFAULT_VSPHERE_TYPE = CONFIG.get("VSPHERE_TYPE", "VMWare vSphere")
-ENFORCE_CLUSTER_GROUP_TOP_LEVEL = CONFIG.get("ENFORCE_CLUSTER_GROUP_TOP_LEVEL", True)
-DEFAULT_VM_STATUS_MAP = CONFIG.get("VSPHERE_VM_STATUS", {"POWERED_OFF": "Offline", "POWERED_ON": "Active"})
-DEFAULT_IP_STATUS_MAP = CONFIG.get("VSPHERE_IP_STATUS", {"PREFERRED": "Active", "UNKNOWN": "Reserved"})
-ENABLED_VM_INTERFACE_MAP = CONFIG.get("ENABLED_VM_INTERFACE_MAP", {"NOT_CONNECTED": False, "CONNECTED": True})
-PRIMARY_IP_SORT_BY = CONFIG.get("PRIMARY_IP_SORT_BY", "Lowest")
+- `VSPHERE_TYPE` Defaults to `VMWare vSphere`
+- `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` Defaults to True
+- `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active"}
+- `VSPHERE_IP_STATUS_MAP` Defaults to {"PREFERRED": "Active", "UNKNOWN": "Reserved"}
+- `VSPHERE_VM_INTERFACE_MAP` Defaults to {"NOT_CONNECTED": False, "CONNECTED": True}
+- `PRIMARY_IP_SORT_BY` Defaults to "Lowest"
 ```
+
+To get a detailed description on each configuration setting, head over to the [Overview](https://h4ndzdatm0ld.github.io/nautobot-ssot-vsphere/Overview.html) documentation.

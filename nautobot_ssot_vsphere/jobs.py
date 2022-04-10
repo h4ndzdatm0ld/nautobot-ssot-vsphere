@@ -104,7 +104,7 @@ class VspherecDataSource(DataSource, Job):
             "vSphere Cluster Type": defaults.DEFAULT_VSPHERE_TYPE,
             "Enforce ClusterGroup as Top Level": "False" if not defaults.ENFORCE_CLUSTER_GROUP_TOP_LEVEL else "True",
             "Default Virtual Machine Status Map": defaults.DEFAULT_VM_STATUS_MAP,
-            "Default VMInterface Enabled Map": defaults.ENABLED_VM_INTERFACE_MAP,
+            "Default VMInterface Enabled Map": defaults.VSPHERE_VM_INTERFACE_MAP,
             "Default IP Status Map": defaults.DEFAULT_IP_STATUS_MAP,
             "Sort & assign VM primary IP by:": defaults.PRIMARY_IP_SORT_BY,
         }
