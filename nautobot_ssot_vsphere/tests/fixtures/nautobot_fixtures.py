@@ -23,7 +23,7 @@ def create_cluster_group(name: str = "Development Cluster Group"):
 
 
 def create_cluster_type(name: str = "VMWare vSphere"):
-    """_summary_
+    """Create Cluster Type.
 
     Args:
         name (str, optional): _description_. Defaults to "VMWare vSphere".
@@ -42,7 +42,7 @@ def create_cluster(
     cluster_type: str = "VMWare vSphere",
     diffsync_clustergroup: str = "Development DataCenter",
 ):
-    """_summary_
+    """Create Cluster.
 
     Args:
         name (str, optional): _description_. Defaults to "Development Cluster".
