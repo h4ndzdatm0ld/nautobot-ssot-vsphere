@@ -63,7 +63,7 @@ Attributes
 
 .. py:function:: nautobot_database_ready_callback(sender, *, apps, **kwargs)
 
-   Callback function triggered by the nautobot_database_ready signal when the Nautobot database is fully ready.
+   Trigger when the Nautobot database is fully ready.
 
 
 .. py:data:: __version__

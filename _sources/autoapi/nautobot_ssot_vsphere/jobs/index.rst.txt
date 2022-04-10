@@ -111,7 +111,7 @@ Attributes
    .. py:method:: config_information(cls)
       :classmethod:
 
-      Dictionary describing the configuration of this DataSource.
+      Configuration of this DataSource.
 
 
    .. py:method:: log_debug(self, message)
