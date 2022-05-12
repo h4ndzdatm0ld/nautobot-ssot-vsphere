@@ -38,12 +38,12 @@ pylint-django = "*"
 pytest = "*"
 yamllint = "*"
 Markdown = "*"
-Sphinx = "^4.5.0"
-myst-parser = "^0.17.0"
-sphinx-rtd-theme = "^1.0.0"
-sphinx-autoapi = "^1.8.4"
-jedi = "^0.18.1"
-toml = "^0.10.2"
+Sphinx = "*"
+myst-parser = "*"
+sphinx-rtd-theme = "*"
+sphinx-autoapi = "*"
+jedi = "*"
+toml = "*"
 
 [tool.poetry.extras]
 nautobot = ["nautobot"]
