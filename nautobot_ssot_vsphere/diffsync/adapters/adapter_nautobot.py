@@ -85,7 +85,7 @@ class NautobotDiffSync(DiffSyncModelAdapters):
                 cluster_objects = Cluster.objects.filter(Q(name=self.cluster_filter.name) & Q(tags__slug=ssot_tag.slug))
                 if not cluster_objects:
                     self.job.log_warning(
-                        message=f"{self.cluster_filter.name} was used to filter, alongside SSoT Tag. {self.cluster_filter.name} is not tagged."
+                        message=f"{self.cluster_filter.name} was used to filter, alongside SSoT Tag. {self.cluster_filter.name} is not tagged."  # NOQA
                     )
         elif not self.sync_vsphere_tagged_only:
             if self.cluster_filter:
@@ -180,7 +180,7 @@ class NautobotDiffSync(DiffSyncModelAdapters):
                     cluster_group_parent.add_child(diffsync_cluster)
                 else:
                     self.job.log_warning(
-                        message=f"{cluster_record}, is missing association to a Cluster Group. Please correct to ensure proper sync. `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` is enabled.",
+                        message=f"{cluster_record}, is missing association to a Cluster Group. Please correct to ensure proper sync. `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` is enabled.",  # NOQA
                         obj=cluster_record,
                     )
 

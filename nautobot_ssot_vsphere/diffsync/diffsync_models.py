@@ -27,7 +27,8 @@ class DiffSyncExtras(DiffSyncModel):
 
         Args:
             nautobot_object (Any): Any type of Nautobot object
-            safe_delete_status (Optional[str], optional): Status name, optional as some objects don't have status field. Defaults to None.
+            safe_delete_status (Optional[str], optional): Status name, optional
+            as some objects don't have status field. Defaults to None.
         """
         # This allows private class naming of nautobot objects to be ordered for delete()
         # Example definition in adapter class var: _site = Site

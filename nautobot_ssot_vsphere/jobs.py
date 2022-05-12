@@ -127,7 +127,7 @@ class VspherecDataSource(DataSource, Job):
             cluster_filter_object = Cluster.objects.get(pk=cluster_filter)
         else:
             cluster_filter_object = None
-        options = f"`Debug`: {debug_mode}, `Dry Run`: {dry_run}, `Sync Tagged Only`: {tagged_only}, `Cluster Filter`: {cluster_filter_object}"
+        options = f"`Debug`: {debug_mode}, `Dry Run`: {dry_run}, `Sync Tagged Only`: {tagged_only}, `Cluster Filter`: {cluster_filter_object}"  # NOQA
         self.log_info(message=f"Starting job with the following options: {options}")
 
         vsphere_source = VsphereDiffSync(job=self, sync=self.sync, client=client, cluster_filter=cluster_filter_object)

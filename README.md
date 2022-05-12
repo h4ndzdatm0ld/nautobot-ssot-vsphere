@@ -4,7 +4,7 @@ A plugin for [Nautobot](https://github.com/nautobot/nautobot) that leverages the
 
 ## The future of Virtual Machine In Nautobot
 
-There is discussion in place to deprecate VirtualMachine and VMInterface from Nautobot models on release 2.0.
+There is discussion in place to that will bring big changes to VirtualMachine and VMInterface targeted for release 2.0.
 See the [issue](https://github.com/nautobot/nautobot/issues/1178)
 
 When that time comes, this application will need to be updated to handle the new core model structure
