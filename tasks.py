@@ -1,4 +1,4 @@
-# noqa
+# NOQA
 """Tasks for use with Invoke.
 
 (c) 2020-2021 Network To Code
@@ -95,7 +95,7 @@ def docker_compose(context, command, **kwargs):
         "NAUTOBOT_VER": context.nautobot_ssot_vsphere.nautobot_ver,
         "PYTHON_VER": context.nautobot_ssot_vsphere.python_ver,
     }
-    compose_command = f'docker-compose --project-name {context.nautobot_ssot_vsphere.project_name} --project-directory "{context.nautobot_ssot_vsphere.compose_dir}"'
+    compose_command = f'docker-compose --project-name {context.nautobot_ssot_vsphere.project_name} --project-directory "{context.nautobot_ssot_vsphere.compose_dir}"'  # NOQA
     for compose_file in context.nautobot_ssot_vsphere.compose_files:
         compose_file_path = os.path.join(context.nautobot_ssot_vsphere.compose_dir, compose_file)
         compose_command += f' -f "{compose_file_path}"'
@@ -315,7 +315,7 @@ def black(context, autoformat=False):
 @task
 def flake8(context):
     """Check for PEP8 compliance and other style issues."""
-    command = "flake8 ."
+    command = "flake8 . --max-line-length=120"
     run_command(context, command)
 
 

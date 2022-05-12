@@ -18,7 +18,6 @@ packages = [
 
 [tool.poetry.dependencies]
 # Used for local development
-nautobot = { version = "^1.2.0", optional = true }
 python = "^3.7"
 diffsync = "^1.4.3"
 nautobot-ssot = "^1.1.0"
@@ -79,6 +78,9 @@ ignore=".venv"
 [tool.pylint.basic]
 # No docstrings required for private methods (Pylint default), or for test_ functions, or for inner Meta classes.
 no-docstring-rgx="^(_|test_|Meta$)"
+
+[tool.pylint.SIMILARITIES]
+min-similarity-lines=10
 
 [tool.pylint.messages_control]
 # Line length is enforced by Black, so pylint doesn't need to check it.

@@ -104,7 +104,9 @@ class VsphereDiffSync(DiffSyncModelAdapters):
 
         return ipv4_addresses, ipv6_addresses
 
-    def load_primary_ip(self, ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine):
+    def load_primary_ip(
+        self, ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine
+    ):  # pylint:disable=R0201
         """Determine Primary IP of Virtual Machine."""
         # Sort and choose a primary_ip by default config setting
         ipv4_addresses.sort()
