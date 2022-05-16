@@ -25,4 +25,18 @@ The disk total is an aggregate of all virtual disks available on the virtual mac
 
 ## I use vSphere, but I don't have any Clusters. I only have VM's under hosts.
 
-Currently, this application is expecting to get cluster information from vSphere API and populate the DiffSync Models. At this time, there is no way around it. Contributions are welcome to override or provide a default cluster and bypass the API call. Nautobot does expect a Virtual Machine to live in a cluster, but that may change in the future. A solution to this would be good, happy to collaborate.
+The plugin was built with vSphere environments that use Clusters within Datacenters. However, there is a way to change the default bevahiour to allow sync against vSphere environments that do not use Clusters. Changing `DEFAULT_USE_CLUSTERS` to False in the Nautobot -> `nautobot_ssot_vsphere` plugin config dictionary, as well as `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` to False. This will sync VM's and their attributes only.
+
+> This is experimental. Also, the syncs may not behave as expected if these settings are changed once the sync has been completed with a different `Top Level` designation.
+
+The sync behaviour can be modified in several ways and the logic that enforces the diffsync `Top Level` lives in `adapters.shared.adapter_shared.py`
+
+```python
+if defaults.DEFAULT_USE_CLUSTERS:
+    if defaults.ENFORCE_CLUSTER_GROUP_TOP_LEVEL:
+        top_level = ["diffsync_clustergroup"]
+    else:
+        top_level = ["diffsync_cluster", "diffsync_clustergroup"]
+else:
+    top_level = ["diffsync_virtual_machine"]
+```

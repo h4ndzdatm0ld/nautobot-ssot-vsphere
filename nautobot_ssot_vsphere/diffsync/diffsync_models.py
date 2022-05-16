@@ -18,6 +18,11 @@ from nautobot.virtualization.models import (
 from nautobot_ssot_vsphere.diffsync import defaults
 from nautobot_ssot_vsphere.utilities import tag_object
 
+_DEFAULT_VSPHERE_TYPE, _ = ClusterType.objects.get_or_create(
+    name=defaults.DEFAULT_VSPHERE_TYPE
+)  # pylint: disable=invalid-name
+tag_object(_DEFAULT_VSPHERE_TYPE)
+
 
 class DiffSyncExtras(DiffSyncModel):
     """Additional components to mix and subclass from with `DiffSyncModel`."""
@@ -91,14 +96,10 @@ class DiffSyncCluster(DiffSyncExtras):
     @classmethod
     def create(cls, diffsync, ids, attrs):
         """Create Objects in Nautobot."""
-        _default_vsphere_type, _ = ClusterType.objects.get_or_create(
-            name=defaults.DEFAULT_VSPHERE_TYPE
-        )  # pylint: disable=invalid-name
-        tag_object(_default_vsphere_type)
         try:
             cluster, _ = Cluster.objects.get_or_create(
                 name=ids["name"],
-                type=_default_vsphere_type,
+                type=_DEFAULT_VSPHERE_TYPE,
             )
             if attrs["group"]:
                 clustergroup, _ = ClusterGroup.objects.get_or_create(name=attrs["group"])
@@ -288,12 +289,16 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
 
     _modelname = "diffsync_virtual_machine"
     _identifiers = ("name",)
-    _attributes = ("status", "vcpus", "memory", "disk", "cluster", "primary_ip4", "primary_ip6")
+    # Handle Hypervisors users that do not use clusters.
+    if defaults.DEFAULT_USE_CLUSTERS:
+        _attributes = ("status", "vcpus", "memory", "disk", "cluster", "primary_ip4", "primary_ip6")
+        cluster: str
+    else:
+        _attributes = ("status", "vcpus", "memory", "disk", "primary_ip4", "primary_ip6")
     _children = {"diffsync_vminterface": "interfaces"}
 
     name: str
     status: Optional[str]
-    cluster: str
     vcpus: Optional[int]
     memory: Optional[int]
     disk: Optional[int]
@@ -307,7 +312,13 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
         """Create VirtualMachine in Nautobot."""
         try:
             status = Status.objects.get(name=attrs["status"])
-            cluster = Cluster.objects.get(name=attrs["cluster"])
+            if defaults.DEFAULT_USE_CLUSTERS:
+                cluster = Cluster.objects.get(name=attrs["cluster"])
+            else:
+                cluster, _ = Cluster.objects.get_or_create(
+                    name=defaults.DEFAULT_CLUSTER_NAME,
+                    type=_DEFAULT_VSPHERE_TYPE,
+                )
             virtual_machine, _ = VirtualMachine.objects.get_or_create(
                 name=ids["name"],
                 status=status,
@@ -342,9 +353,10 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
                 virtual_machine.memory = attrs["memory"]
             if attrs.get("disk"):
                 virtual_machine.disk = attrs["disk"]
-            if attrs.get("cluster"):
-                if virtual_machine.cluster.name != attrs["cluster"]:
-                    virtual_machine.cluster = attrs["cluster"]
+            if defaults.DEFAULT_USE_CLUSTERS:
+                if attrs.get("cluster"):
+                    if virtual_machine.cluster.name != attrs["cluster"]:
+                        virtual_machine.cluster = attrs["cluster"]
             if attrs.get("primary_ip4") or attrs.get("primary_ip6"):
                 for interface in virtual_machine.interfaces.all():
                     for ip_address in interface.ip_addresses.all():
@@ -363,8 +375,13 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
             self.diffsync.job.log_warning(f"Unable to match VirtualMachine by name, {self.name}")
 
 
-DiffSyncClusterGroup.update_forward_refs()
-DiffSyncCluster.update_forward_refs()
-DiffSyncVirtualMachine.update_forward_refs()
-DiffSyncVMInterface.update_forward_refs()
-DiffSyncIpAddress.update_forward_refs()
+if defaults.DEFAULT_USE_CLUSTERS:
+    DiffSyncClusterGroup.update_forward_refs()
+    DiffSyncCluster.update_forward_refs()
+    DiffSyncVirtualMachine.update_forward_refs()
+    DiffSyncVMInterface.update_forward_refs()
+    DiffSyncIpAddress.update_forward_refs()
+else:
+    DiffSyncVirtualMachine.update_forward_refs()
+    DiffSyncVMInterface.update_forward_refs()
+    DiffSyncIpAddress.update_forward_refs()

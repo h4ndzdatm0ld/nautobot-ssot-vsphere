@@ -64,11 +64,12 @@ class VspherecDataSource(DataSource, Job):
         label="Sync Tagged Only",
         description="Only sync objects that have the 'ssot-synced-from-vsphere' tag.",
     )
-    cluster_filter = OptionalObjectVar(
-        description="Only sync Nautobot records belonging to a single Cluster.",
-        model=Cluster,
-        required=False,
-    )
+    if defaults.DEFAULT_USE_CLUSTERS:
+        cluster_filter = OptionalObjectVar(
+            description="Only sync Nautobot records belonging to a single Cluster.",
+            model=Cluster,
+            required=False,
+        )
 
     class Meta:
         """Metadata about this Job."""
@@ -116,21 +117,28 @@ class VspherecDataSource(DataSource, Job):
 
     def sync_data(self):
         """Sync a device data from vSphere into Nautobot."""
-        client = VsphereClient()
-
         dry_run = self.kwargs["dry_run"]
         tagged_only = self.kwargs["sync_vsphere_tagged_only"]
-        cluster_filter = self.kwargs["cluster_filter"]
         debug_mode = self.kwargs["debug"]
 
-        if cluster_filter:
-            cluster_filter_object = Cluster.objects.get(pk=cluster_filter)
+        if defaults.DEFAULT_USE_CLUSTERS:
+            cluster_filter_object = (
+                Cluster.objects.get(pk=self.kwargs["cluster_filter"]) if self.kwargs["cluster_filter"] else None
+            )
         else:
+            self.log_info(message="`DEFAULT_USE_CLUSTERS` is set to `False`")
+            if defaults.ENFORCE_CLUSTER_GROUP_TOP_LEVEL:
+                self.log_failure(message="Cannot `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` and disable `DEFAULT_USE_CLUSTERS`")
+                self.log_info(
+                    message="Set `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` to `False` or `DEFAULT_USE_CLUSTERS` to `True`"
+                )
             cluster_filter_object = None
+
         options = f"`Debug`: {debug_mode}, `Dry Run`: {dry_run}, `Sync Tagged Only`: {tagged_only}, `Cluster Filter`: {cluster_filter_object}"  # NOQA
         self.log_info(message=f"Starting job with the following options: {options}")
-
-        vsphere_source = VsphereDiffSync(job=self, sync=self.sync, client=client, cluster_filter=cluster_filter_object)
+        vsphere_source = VsphereDiffSync(
+            job=self, sync=self.sync, client=VsphereClient(), cluster_filter=cluster_filter_object
+        )
 
         self.log_info(message="Loading current data from vSphere...")
         vsphere_source.load()

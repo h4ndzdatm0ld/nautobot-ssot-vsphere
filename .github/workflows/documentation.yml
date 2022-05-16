@@ -4,7 +4,7 @@ name: "Documentation"
 on: # yamllint disable
   push:
     branches:
-      - "main"
+      - "*" # TODO: Set to main, after first release
 
 jobs:
   documentation:

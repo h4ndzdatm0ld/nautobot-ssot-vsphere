@@ -192,6 +192,33 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 # Load virtual machines that belong to a cluster
                 self.load_virtualmachines(cluster, diffsync_cluster)
 
+    def load_standalone_vms(self):
+        """Load all VM's from vSphere."""
+        virtual_machines = self.client.get_vms().json()["value"]
+        for virtual_machine in virtual_machines:
+            virtual_machine_details = self.client.get_vm_details(virtual_machine["vm"]).json()["value"]
+            diffsync_virtualmachine, _ = self.get_or_instantiate(
+                self.diffsync_virtual_machine,
+                {"name": virtual_machine["name"]},
+                {
+                    "vcpus": virtual_machine["cpu_count"],
+                    "memory": virtual_machine["memory_size_MiB"],
+                    "disk": get_disk_total(virtual_machine_details["disks"]),
+                    "status": defaults.DEFAULT_VM_STATUS_MAP[virtual_machine_details["power_state"]],
+                    "cluster": defaults.DEFAULT_CLUSTER_NAME,
+                },
+            )
+            self.load_vm_interfaces(
+                vsphere_virtual_machine=virtual_machine_details,
+                vm_id=virtual_machine["vm"],
+                diffsync_virtualmachine=diffsync_virtualmachine,
+            )
+
     def load(self):
         """Load data from vSphere."""
-        self.load_data()
+        if defaults.DEFAULT_USE_CLUSTERS:
+            self.load_data()
+        else:
+            self.job.log_warning(message="Not syncing Clusters or Cluster Groups per user settings")
+            self.job.log_warning(message="`DEFAULT_USE_CLUSTERS` set to `False`")
+            self.load_standalone_vms()
