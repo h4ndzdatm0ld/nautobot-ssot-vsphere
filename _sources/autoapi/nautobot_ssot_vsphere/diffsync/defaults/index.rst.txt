@@ -67,11 +67,6 @@ Module Contents
 
    
 
-.. py:data:: DEFAULT_DEVICE_ROLE
-   
-
-   
-
 .. py:data:: DEFAULT_USE_CLUSTERS
    
 

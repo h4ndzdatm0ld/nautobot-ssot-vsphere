@@ -44,6 +44,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#a-diff-always-appears-even-if-virtual-machines-are-created-why">A diff always appears even if virtual machines are created. Why?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#measurements-of-capacity-disks">Measurements of Capacity (Disks)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts">I use vSphere, but I don’t have any Clusters. I only have VM’s under hosts.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-there-a-way-to-sync-of-hosts-into-nautobot-device-model">Is there a way to sync of <code class="docutils literal notranslate"><span class="pre">hosts</span></code> into Nautobot <code class="docutils literal notranslate"><span class="pre">Device</span></code> model?</a></li>
 </ul>
 </li>
 </ul>
@@ -101,11 +102,11 @@
 </section>
 <section id="i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts">
 <h2>I use vSphere, but I don’t have any Clusters. I only have VM’s under hosts.<a class="headerlink" href="#i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts" title="Permalink to this headline"></a></h2>
-<p>The plugin was built with vSphere environments that use Clusters within Datacenters. However, there is a way to change the default bevahiour to allow sync against vSphere environments that do not use Clusters. Changing <code class="docutils literal notranslate"><span class="pre">DEFAULT_USE_CLUSTERS</span></code> to False in the Nautobot -&gt; <code class="docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere</span></code> plugin config dictionary, as well as <code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code> to False. This will sync VM’s and their attributes only.</p>
+<p>The plugin was built with vSphere environments that use Clusters within Datacenters. However, there is a way to change the default behavior to allow sync against vSphere environments that do not use Clusters. Changing <code class="docutils literal notranslate"><span class="pre">DEFAULT_USE_CLUSTERS</span></code> to False in the Nautobot -&gt; <code class="docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere</span></code> plugin config dictionary, as well as <code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code> to False. This will sync VM’s and their attributes only.</p>
 <blockquote>
 <div><p>This is experimental. Also, the syncs may not behave as expected if these settings are changed once the sync has been completed with a different <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code> designation.</p>
 </div></blockquote>
-<p>The sync behaviour can be modified in several ways and the logic that enforces the diffsync <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code> lives in <code class="docutils literal notranslate"><span class="pre">adapters.shared.adapter_shared.py</span></code></p>
+<p>The sync behavior can be modified in several ways and the logic that enforces the diffsync <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code> lives in <code class="docutils literal notranslate"><span class="pre">adapters.shared.adapter_shared.py</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">defaults</span><span class="o">.</span><span class="n">DEFAULT_USE_CLUSTERS</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">defaults</span><span class="o">.</span><span class="n">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span><span class="p">:</span>
         <span class="n">top_level</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;diffsync_clustergroup&quot;</span><span class="p">]</span>
@@ -115,6 +116,10 @@
     <span class="n">top_level</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;diffsync_virtual_machine&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
+</section>
+<section id="is-there-a-way-to-sync-of-hosts-into-nautobot-device-model">
+<h2>Is there a way to sync of <code class="docutils literal notranslate"><span class="pre">hosts</span></code> into Nautobot <code class="docutils literal notranslate"><span class="pre">Device</span></code> model?<a class="headerlink" href="#is-there-a-way-to-sync-of-hosts-into-nautobot-device-model" title="Permalink to this headline"></a></h2>
+<p>The information that is able to be retrieved from vSphere API is very limited in detail and would not be enough to satisfy creating a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object in Nautobot. I’m open to suggestion’s or PR’s to find a solution. This would require quite a bit of default settings if we were to try to fill in the gaps, which could simply pollute the data in Nautobot excessively.</p>
 </section>
 </section>
 
