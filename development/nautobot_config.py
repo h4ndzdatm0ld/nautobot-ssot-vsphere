@@ -300,7 +300,7 @@ PLUGINS_CONFIG = {
         "VSPHERE_PASSWORD": os.getenv("VSPHERE_PASSWORD"),
         "VSPHERE_VERIFY_SSL": is_truthy(os.getenv("VSPHERE_VERIFY_SSL", False)),
         # "DEFAULT_USE_CLUSTERS": False,
-        "ENFORCE_CLUSTER_GROUP_TOP_LEVEL": False,
+        # "ENFORCE_CLUSTER_GROUP_TOP_LEVEL": False,
     },
 }
 

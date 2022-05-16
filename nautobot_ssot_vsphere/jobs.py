@@ -107,7 +107,9 @@ class VspherecDataSource(DataSource, Job):
             "Default Virtual Machine Status Map": defaults.DEFAULT_VM_STATUS_MAP,
             "Default VMInterface Enabled Map": defaults.VSPHERE_VM_INTERFACE_MAP,
             "Default IP Status Map": defaults.DEFAULT_IP_STATUS_MAP,
-            "Sort & assign VM primary IP by:": defaults.PRIMARY_IP_SORT_BY,
+            "Primary IP Assignment": defaults.PRIMARY_IP_SORT_BY,
+            "Default Use Clusers": defaults.DEFAULT_USE_CLUSTERS,
+            "Default Cluster Name": defaults.DEFAULT_CLUSTER_NAME,
         }
 
     def log_debug(self, message):

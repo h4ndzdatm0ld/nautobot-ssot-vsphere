@@ -2,6 +2,9 @@
 
 A plugin for [Nautobot](https://github.com/nautobot/nautobot) that leverages the SSoT plugin to create Virtual Machines, VMInterfaces, IPAddresses, Clusters, and Cluster Groups from VMWare vSphere.
 
+![JobOverview](docs/images/job_overview.png)
+![VirtualMachines](docs/images/virtualmachines.png)
+
 ## The future of Virtual Machine In Nautobot
 
 There is discussion in place to that will bring big changes to VirtualMachine and VMInterface targeted for release 2.0.
@@ -41,15 +44,17 @@ PLUGINS_CONFIG = {
 }
 ```
 
-The plugin behavior can be controlled with the following list of settings
+The plugin behavior can be controlled with additional configuration settings
 
 ```bash
-- `VSPHERE_TYPE` Defaults to `VMWare vSphere`
+- `DEFAULT_VSPHERE_TYPE` Defaults to `VMWare vSphere`
 - `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` Defaults to True
 - `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active"}
 - `VSPHERE_IP_STATUS_MAP` Defaults to {"PREFERRED": "Active", "UNKNOWN": "Reserved"}
 - `VSPHERE_VM_INTERFACE_MAP` Defaults to {"NOT_CONNECTED": False, "CONNECTED": True}
 - `PRIMARY_IP_SORT_BY` Defaults to "Lowest"
+- `DEFAULT_USE_CLUSTERS` Defaults to `True`
+- `DEFAULT_CLUSTER_NAME` Defaults to "vSphere Default Cluster"
 ```
 
-To get a detailed description on each configuration setting, head over to the [Overview](https://h4ndzdatm0ld.github.io/nautobot-ssot-vsphere/Overview.html) documentation.
+To get a detailed description on each configuration setting, head over to the [Overview](https://h4ndzdatm0ld.github.io/nautobot-ssot-vsphere/overview.html) documentation.
