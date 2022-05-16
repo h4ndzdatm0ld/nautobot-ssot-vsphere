@@ -79,6 +79,11 @@ Functions
       Load all clusters from vSphere.
 
 
+   .. py:method:: load_standalone_vms(self)
+
+      Load all VM's from vSphere.
+
+
    .. py:method:: load(self)
 
       Load data from vSphere.

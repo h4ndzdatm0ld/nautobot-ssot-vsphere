@@ -101,14 +101,19 @@ Functions
       Get all VMs details.
 
 
+   .. py:method:: get_host_from_cluster(self, cluster: str) -> Dict
+
+      Get hosts from cluster.
+
+
+   .. py:method:: get_host_details(self, host: str) -> Dict
+
+      Get host details.
+
+
    .. py:method:: get_vm_interfaces(self, vm_id: str) -> Dict
 
       Get all VM interfaces.
-
-
-   .. py:method:: get_host(self)
-
-      Get Host.
 
 
 

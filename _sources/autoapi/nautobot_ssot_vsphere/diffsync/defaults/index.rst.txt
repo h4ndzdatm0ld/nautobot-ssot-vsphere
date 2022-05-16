@@ -57,12 +57,27 @@ Module Contents
 
    
 
-.. py:data:: ENABLED_VM_INTERFACE_MAP
+.. py:data:: VSPHERE_VM_INTERFACE_MAP
    
 
    
 
 .. py:data:: PRIMARY_IP_SORT_BY
+   
+
+   
+
+.. py:data:: DEFAULT_DEVICE_ROLE
+   
+
+   
+
+.. py:data:: DEFAULT_USE_CLUSTERS
+   
+
+   
+
+.. py:data:: DEFAULT_CLUSTER_NAME
    
 
    

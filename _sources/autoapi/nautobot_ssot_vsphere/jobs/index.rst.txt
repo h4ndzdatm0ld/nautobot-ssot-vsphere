@@ -97,11 +97,6 @@ Attributes
 
       
 
-   .. py:attribute:: cluster_filter
-      
-
-      
-
    .. py:method:: data_mappings(cls)
       :classmethod:
 

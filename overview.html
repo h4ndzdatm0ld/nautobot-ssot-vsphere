@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
+  <title>Overview of Nautobot SSoT vSphere &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -38,8 +38,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-settings">Configuration Settings</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
 </ul>
 <ul>
@@ -60,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>&lt;no title&gt;</li>
+      <li>Overview of Nautobot SSoT vSphere</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/overview.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -70,7 +74,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="overview-of-nautobot-ssot-vsphere">
+<h1>Overview of Nautobot SSoT vSphere<a class="headerlink" href="#overview-of-nautobot-ssot-vsphere" title="Permalink to this headline"></a></h1>
+<section id="configuration-settings">
+<h2>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">VSPHERE_TYPE</span></code></p>
+<ul class="simple">
+<li><p>This is the default Cluster Type that will be created in Nautobot and associated to every Cluster discovered.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Diffsync</span></code> has a concept of <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code>. This application defaults to the <code class="docutils literal notranslate"><span class="pre">ClusterGroup</span></code> as Top Level, which translates to a vSphere DataCenter. This can be changed to have a Cluster in vSphere be the Top Level and ignore DataCenters.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">VSPHERE_VM_STATUS_MAP,</span> <span class="pre">VSPHERE_IP_STATUS_MAP,</span> <span class="pre">VSPHERE_VM_INTERFACE_MAP</span></code></p>
+<ul class="simple">
+<li><p>These are dictionary (maps) that translate the vSphere value to something Nautobot can understand. You must be sure that the values provided are valid before manipulating these maps.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>- <span class="sb">`</span>VSPHERE_VM_STATUS_MAP<span class="sb">`</span> Defaults to <span class="o">{</span><span class="s2">&quot;POWERED_OFF&quot;</span>: <span class="s2">&quot;Offline&quot;</span>, <span class="s2">&quot;POWERED_ON&quot;</span>: <span class="s2">&quot;Active&quot;</span><span class="o">}</span>
+- <span class="sb">`</span>VSPHERE_IP_STATUS_MAP<span class="sb">`</span> Defaults to <span class="o">{</span><span class="s2">&quot;PREFERRED&quot;</span>: <span class="s2">&quot;Active&quot;</span>, <span class="s2">&quot;UNKNOWN&quot;</span>: <span class="s2">&quot;Reserved&quot;</span><span class="o">}</span>
+- <span class="sb">`</span>VSPHERE_VM_INTERFACE_MAP<span class="sb">`</span> Defaults to <span class="o">{</span><span class="s2">&quot;NOT_CONNECTED&quot;</span>: False, <span class="s2">&quot;CONNECTED&quot;</span>: True<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">PRIMARY_IP_SORT_BY</span></code></p>
+<ul class="simple">
+<li><p>Virtual Machines can have many different IP Addresses associated to many interfaces. As there is no overall business logic that will satisfy which IP will be used as the Primary IP of a Virtual Machine in Nautobot, there is an option to decide by lowest or highest. The total number of IP’s are gathered, sorted and assigned to the VM based on the value of this setting. Anything other than <code class="docutils literal notranslate"><span class="pre">Lowest</span></code> will assign the highest IP value found on the Virtual Machine.</p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

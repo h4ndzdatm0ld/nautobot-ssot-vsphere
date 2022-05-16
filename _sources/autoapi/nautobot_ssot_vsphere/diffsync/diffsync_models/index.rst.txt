@@ -39,7 +39,8 @@ Classes
 
       Args:
           nautobot_object (Any): Any type of Nautobot object
-          safe_delete_status (Optional[str], optional): Status name, optional as some objects don't have status field. Defaults to None.
+          safe_delete_status (Optional[str], optional): Status name, optional
+          as some objects don't have status field. Defaults to None.
 
 
 
@@ -296,11 +297,6 @@ Classes
 
       
 
-   .. py:attribute:: _attributes
-      :annotation: = ['status', 'vcpus', 'memory', 'disk', 'cluster', 'primary_ip4', 'primary_ip6']
-
-      
-
    .. py:attribute:: _children
       
 
@@ -313,11 +309,6 @@ Classes
 
    .. py:attribute:: status
       :annotation: :Optional[str]
-
-      
-
-   .. py:attribute:: cluster
-      :annotation: :str
 
       
 
