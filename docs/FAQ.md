@@ -41,6 +41,6 @@ else:
     top_level = ["diffsync_virtual_machine"]
 ```
 
-## Is there a way to sync of `hosts` into Nautobot `Device` model?
+## Is there a way to sync `hosts` into Nautobot `Device` model?
 
 The information that is able to be retrieved from vSphere API is very limited in detail and would not be enough to satisfy creating a `Device` object in Nautobot. I'm open to suggestion's or PR's to find a solution. This would require quite a bit of default settings if we were to try to fill in the gaps, which could simply pollute the data in Nautobot excessively. 

@@ -47,7 +47,7 @@ PLUGINS_CONFIG = {
 The plugin behavior can be controlled with additional configuration settings
 
 ```bash
-- `DEFAULT_VSPHERE_TYPE` Defaults to `VMWare vSphere`
+- `VSPHERE_TYPE` Defaults to `VMWare vSphere`
 - `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` Defaults to True
 - `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active"}
 - `VSPHERE_IP_STATUS_MAP` Defaults to {"PREFERRED": "Active", "UNKNOWN": "Reserved"}
