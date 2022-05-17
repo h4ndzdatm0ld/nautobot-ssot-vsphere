@@ -322,6 +322,7 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
                     name=defaults.DEFAULT_CLUSTER_NAME,
                     type=_default_vsphere_type,
                 )
+                tag_object(cluster)
             virtual_machine, _ = VirtualMachine.objects.get_or_create(
                 name=ids["name"],
                 status=status,
