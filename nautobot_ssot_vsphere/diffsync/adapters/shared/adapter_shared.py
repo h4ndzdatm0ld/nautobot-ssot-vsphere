@@ -13,7 +13,10 @@ class DiffSyncModelAdapters(DiffSync):
     diffsync_vminterface = diffsync_models.DiffSyncVMInterface
     diffsync_ipaddress = diffsync_models.DiffSyncIpAddress
 
-    if defaults.ENFORCE_CLUSTER_GROUP_TOP_LEVEL:
-        top_level = ["diffsync_clustergroup"]
+    if defaults.DEFAULT_USE_CLUSTERS:
+        if defaults.ENFORCE_CLUSTER_GROUP_TOP_LEVEL:
+            top_level = ["diffsync_clustergroup"]
+        else:
+            top_level = ["diffsync_cluster", "diffsync_clustergroup"]
     else:
-        top_level = ["diffsync_cluster", "diffsync_clustergroup"]
+        top_level = ["diffsync_virtual_machine"]

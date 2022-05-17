@@ -55,9 +55,7 @@ class VsphereClient:
             :class:`~requests.Response`: Response from the API.
         """
         url = requests.compat.urljoin(self.uri, path)
-        resp = self.session.request(method, url, **kwargs)
-
-        return resp
+        return self.session.request(method, url, **kwargs)
 
     def get_vms(self) -> Dict:
         """Get VMs."""
@@ -95,10 +93,14 @@ class VsphereClient:
         """Get all VMs details."""
         return self._request("GET", f"{self.uri}/rest/vcenter/vm/{vm_id}")
 
+    def get_host_from_cluster(self, cluster: str) -> Dict:
+        """Get hosts from cluster."""
+        return self._request("GET", f"{self.uri}/rest/vcenter/host/?filter.clusters={cluster}")
+
+    def get_host_details(self, host: str) -> Dict:
+        """Get host details."""
+        return self._request("GET", f"{self.uri}/rest/vcenter/host/?filter.hosts={host}")
+
     def get_vm_interfaces(self, vm_id: str) -> Dict:
         """Get all VM interfaces."""
         return self._request("GET", f"{self.uri}/rest/vcenter/vm/{vm_id}/guest/networking/interfaces")
-
-    def get_host(self):
-        """Get Host."""
-        return self._request("GET", f"{self.uri}/rest/vcenter/host")

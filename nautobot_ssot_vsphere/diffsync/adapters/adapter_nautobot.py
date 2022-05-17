@@ -85,7 +85,7 @@ class NautobotDiffSync(DiffSyncModelAdapters):
                 cluster_objects = Cluster.objects.filter(Q(name=self.cluster_filter.name) & Q(tags__slug=ssot_tag.slug))
                 if not cluster_objects:
                     self.job.log_warning(
-                        message=f"{self.cluster_filter.name} was used to filter, alongside SSoT Tag. {self.cluster_filter.name} is not tagged."
+                        message=f"{self.cluster_filter.name} was used to filter, alongside SSoT Tag. {self.cluster_filter.name} is not tagged."  # NOQA
                     )
         elif not self.sync_vsphere_tagged_only:
             if self.cluster_filter:
@@ -178,9 +178,9 @@ class NautobotDiffSync(DiffSyncModelAdapters):
                 if cluster_record.group:
                     cluster_group_parent = self.get(self.diffsync_clustergroup, cluster_record.group.name)
                     cluster_group_parent.add_child(diffsync_cluster)
-                else:
+                elif defaults.DEFAULT_USE_CLUSTERS:
                     self.job.log_warning(
-                        message=f"{cluster_record}, is missing association to a Cluster Group. Please correct to ensure proper sync. `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` is enabled.",
+                        message=f"{cluster_record}, is missing association to a Cluster Group. Please correct to ensure proper sync. `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` is enabled.",  # NOQA
                         obj=cluster_record,
                     )
 
@@ -188,6 +188,7 @@ class NautobotDiffSync(DiffSyncModelAdapters):
         """Add Nautobot Site objects as DiffSync Location models."""
         ssot_tag = create_ssot_tag()
         # Load DataCenters first.
+        # if defaults.DEFAULT_USE_CLUSTERS:
         self.load_clustergroups()
         # Load Clusters. This can used to filter by TAG or Cluster to minimize
         # The number of Virtual Machines from vSphere coming into Nautobot.

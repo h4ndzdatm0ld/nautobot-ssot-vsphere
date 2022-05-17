@@ -75,8 +75,9 @@ class VsphereDiffSync(DiffSyncModelAdapters):
         ipv4_addresses = []
         ipv6_addresses = []
         for interface in vsphere_vm_interfaces.json()["value"]:
-            current_mac = interface["mac_address"].lower()
-
+            if not isinstance(interface, dict):
+                continue
+            current_mac = interface["mac_address"].lower() if interface.get("mac_address") else None
             if not current_mac == mac_address:
                 continue
             # Capture all IP Addresses
@@ -103,7 +104,9 @@ class VsphereDiffSync(DiffSyncModelAdapters):
 
         return ipv4_addresses, ipv6_addresses
 
-    def load_primary_ip(self, ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine):
+    def load_primary_ip(
+        self, ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine
+    ):  # pylint:disable=R0201
         """Determine Primary IP of Virtual Machine."""
         # Sort and choose a primary_ip by default config setting
         ipv4_addresses.sort()
@@ -122,9 +125,9 @@ class VsphereDiffSync(DiffSyncModelAdapters):
             if ipv6_addresses:
                 diffsync_virtualmachine.primary_ip6 = str(ipv6_addresses[-1])
 
-        self.job.log_debug(
-            message=f"Assigning {diffsync_virtualmachine.primary_ip6} as primary to {diffsync_virtualmachine.name}"
-        )
+        # self.job.log_debug(
+        #     message=f"Assigning {diffsync_virtualmachine.primary_ip6} as primary to {diffsync_virtualmachine.name}"
+        # )
 
     def load_vm_interfaces(self, vsphere_virtual_machine, vm_id, diffsync_virtualmachine):
         """Load VM Interfaces."""
@@ -139,7 +142,7 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 self.diffsync_vminterface,
                 {"name": nic["value"]["label"], "virtual_machine": diffsync_virtualmachine.name},
                 {
-                    "enabled": defaults.ENABLED_VM_INTERFACE_MAP[nic["value"]["state"]],
+                    "enabled": defaults.VSPHERE_VM_INTERFACE_MAP[nic["value"]["state"]],
                     "mac_address": nic_mac,
                 },
             )
@@ -189,6 +192,33 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 # Load virtual machines that belong to a cluster
                 self.load_virtualmachines(cluster, diffsync_cluster)
 
+    def load_standalone_vms(self):
+        """Load all VM's from vSphere."""
+        virtual_machines = self.client.get_vms().json()["value"]
+        for virtual_machine in virtual_machines:
+            virtual_machine_details = self.client.get_vm_details(virtual_machine["vm"]).json()["value"]
+            diffsync_virtualmachine, _ = self.get_or_instantiate(
+                self.diffsync_virtual_machine,
+                {"name": virtual_machine["name"]},
+                {
+                    "vcpus": virtual_machine["cpu_count"],
+                    "memory": virtual_machine["memory_size_MiB"],
+                    "disk": get_disk_total(virtual_machine_details["disks"]),
+                    "status": defaults.DEFAULT_VM_STATUS_MAP[virtual_machine_details["power_state"]],
+                    "cluster": defaults.DEFAULT_CLUSTER_NAME,
+                },
+            )
+            self.load_vm_interfaces(
+                vsphere_virtual_machine=virtual_machine_details,
+                vm_id=virtual_machine["vm"],
+                diffsync_virtualmachine=diffsync_virtualmachine,
+            )
+
     def load(self):
         """Load data from vSphere."""
-        self.load_data()
+        if defaults.DEFAULT_USE_CLUSTERS:
+            self.load_data()
+        else:
+            self.job.log_warning(message="Not syncing Clusters or Cluster Groups per user settings")
+            self.job.log_warning(message="`DEFAULT_USE_CLUSTERS` set to `False`")
+            self.load_standalone_vms()

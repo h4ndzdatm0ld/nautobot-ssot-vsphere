@@ -1,3 +1,4 @@
+# NOQA
 """Nautobot Configuration."""  # pylint: disable=invalid-envvar-default
 import os
 import sys
@@ -99,7 +100,8 @@ SECRET_KEY = os.getenv("NAUTOBOT_SECRET_KEY")
 #                       #
 #########################
 
-# Specify one or more name and email address tuples representing Nautobot administrators. These people will be notified of
+# Specify one or more name and email address tuples representing Nautobot
+# administrators. These people will be notified of
 # application errors (assuming correct email settings are provided).
 ADMINS = [
     # ['John Doe', 'jdoe@example.com'],
@@ -185,23 +187,29 @@ EXEMPT_VIEW_PERMISSIONS = [
 EXTERNAL_AUTH_DEFAULT_GROUPS = []
 EXTERNAL_AUTH_DEFAULT_PERMISSIONS = {}
 
-# If hosting Nautobot in a subdirectory, you must set this value to match the base URL prefix configured in your HTTP server (e.g. `/nautobot/`). When not set, URLs will default to being prefixed by `/`.
+# If hosting Nautobot in a subdirectory, you must set this value to match the
+# base URL prefix configured in your HTTP server (e.g. `/nautobot/`).
+# When not set, URLs will default to being prefixed by `/`.
 FORCE_SCRIPT_NAME = None
 
-# When set to `True`, users with limited permissions will only be able to see items in the UI they have access too.
+# When set to `True`, users with limited permissions will only be able to see
+# items in the UI they have access too.
 HIDE_RESTRICTED_UI = is_truthy(os.getenv("NAUTOBOT_HIDE_RESTRICTED_UI", False))
 
-# HTTP proxies Nautobot should use when sending outbound HTTP requests (e.g. for webhooks).
+# HTTP proxies Nautobot should use when sending outbound HTTP requests
+# (e.g. for webhooks).
 # HTTP_PROXIES = {
 #     'http': 'http://10.10.1.10:3128',
 #     'https': 'http://10.10.1.10:1080',
 # }
 
-# IP addresses recognized as internal to the system. The debugging toolbar will be available only to clients accessing
+# IP addresses recognized as internal to the system.
+# The debugging toolbar will be available only to clients accessing
 # Nautobot from an internal IP.
 INTERNAL_IPS = ("127.0.0.1", "::1")
 
-# Enable custom logging. Please see the Django documentation for detailed guidance on configuring custom logs:
+# Enable custom logging. Please see the Django documentation for detailed
+# guidance on configuring custom logs:
 #   https://docs.djangoproject.com/en/stable/topics/logging/
 LOG_LEVEL = "DEBUG" if DEBUG else "INFO"
 LOGGING = {
@@ -213,7 +221,7 @@ LOGGING = {
             "datefmt": "%H:%M:%S",
         },
         "verbose": {
-            "format": "%(asctime)s.%(msecs)03d %(levelname)-7s %(name)-20s %(filename)-15s %(funcName)30s() :\n  %(message)s",
+            "format": "%(asctime)s.%(msecs)03d %(levelname)-7s %(name)-20s %(filename)-15s %(funcName)30s() :\n  %(message)s",  # NOQA
             "datefmt": "%H:%M:%S",
         },
     },
@@ -245,12 +253,15 @@ MAINTENANCE_MODE = is_truthy(os.getenv("NAUTOBOT_MAINTENANCE_MODE", False))
 # all objects by specifying "?limit=0".
 MAX_PAGE_SIZE = int(os.getenv("NAUTOBOT_MAX_PAGE_SIZE", 1000))
 
-# The file path where uploaded media such as image attachments are stored. A trailing slash is not needed. Note that
+# The file path where uploaded media such as image attachments are stored.
+# A trailing slash is not needed. Note that
 # the default value of this setting is within the invoking user's home directory
 # MEDIA_ROOT = os.path.expanduser('~/.nautobot/media')
 
-# By default uploaded media is stored on the local filesystem. Using Django-storages is also supported. Provide the
-# class path of the storage driver in STORAGE_BACKEND and any configuration options in STORAGE_CONFIG. For example:
+# By default uploaded media is stored on the local filesystem.
+# Using Django-storages is also supported. Provide the
+# class path of the storage driver in STORAGE_BACKEND and any configuration
+# options in STORAGE_CONFIG. For example:
 # STORAGE_BACKEND = 'storages.backends.s3boto3.S3Boto3Storage'
 # STORAGE_CONFIG = {
 #     'AWS_ACCESS_KEY_ID': 'Key ID',
@@ -269,8 +280,9 @@ NAPALM_PASSWORD = os.getenv("NAUTOBOT_NAPALM_PASSWORD", "")
 # NAPALM timeout (in seconds). (Default: 30)
 NAPALM_TIMEOUT = int(os.getenv("NAUTOBOT_NAPALM_TIMEOUT", 30))
 
-# NAPALM optional arguments (see https://napalm.readthedocs.io/en/latest/support/#optional-arguments). Arguments must
-# be provided as a dictionary.
+# NAPALM optional arguments
+# (see https://napalm.readthedocs.io/en/latest/support/#optional-arguments).
+# Arguments must be provided as a dictionary.
 NAPALM_ARGS = {}
 
 # Determine how many objects to display per page within a list. (Default: 50)
@@ -287,6 +299,8 @@ PLUGINS_CONFIG = {
         "VSPHERE_USERNAME": os.getenv("VSPHERE_USERNAME"),
         "VSPHERE_PASSWORD": os.getenv("VSPHERE_PASSWORD"),
         "VSPHERE_VERIFY_SSL": is_truthy(os.getenv("VSPHERE_VERIFY_SSL", False)),
+        "DEFAULT_USE_CLUSTERS": False,
+        "ENFORCE_CLUSTER_GROUP_TOP_LEVEL": False,
     },
 }
 
@@ -335,7 +349,9 @@ SHORT_TIME_FORMAT = os.getenv("NAUTOBOT_SHORT_TIME_FORMAT", "H:i:s")
 DATETIME_FORMAT = os.getenv("NAUTOBOT_DATETIME_FORMAT", "N j, Y g:i a")
 SHORT_DATETIME_FORMAT = os.getenv("NAUTOBOT_SHORT_DATETIME_FORMAT", "Y-m-d H:i")
 
-# A list of strings designating all applications that are enabled in this Django installation. Each string should be a dotted Python path to an application configuration class (preferred), or a package containing an application.
+# A list of strings designating all applications that are enabled in this Django installation.
+# Each string should be a dotted Python path to an application configuration class (preferred), or a package
+# containing an application.
 # https://nautobot.readthedocs.io/en/latest/configuration/optional-settings/#extra-applications
 EXTRA_INSTALLED_APPS = []
 

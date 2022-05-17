@@ -32,10 +32,10 @@ class NautobotSsotVsphereConfig(PluginConfig):
     min_version = "1.2.0"
     max_version = "1.9999"
     default_settings = {
-        "VSPHERE_VM_STATUS": {"POWERED_OFF": "Offline", "POWERED_ON": "Active"},
-        "ENABLED_VM_INTERFACE_MAP": {"NOT_CONNECTED": False, "CONNECTED": True},
+        "VSPHERE_VM_STATUS_MAP": {"POWERED_OFF": "Offline", "POWERED_ON": "Active"},
+        "VSPHERE_VM_INTERFACE_MAP": {"NOT_CONNECTED": False, "CONNECTED": True},
         "ENFORCE_CLUSTER_GROUP_TOP_LEVEL": True,
-        "VSPHERE_IP_STATUS": {"PREFERRED": "Active", "UNKNOWN": "Reserved"},
+        "VSPHERE_IP_STATUS_MAP": {"PREFERRED": "Active", "UNKNOWN": "Reserved"},
         "PRIMARY_IP_SORT_BY": "Lowest",
         "VSPHERE_TYPE": "VMWare vSphere",
     }

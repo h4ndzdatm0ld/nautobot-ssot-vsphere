@@ -27,7 +27,8 @@ class DiffSyncExtras(DiffSyncModel):
 
         Args:
             nautobot_object (Any): Any type of Nautobot object
-            safe_delete_status (Optional[str], optional): Status name, optional as some objects don't have status field. Defaults to None.
+            safe_delete_status (Optional[str], optional): Status name, optional
+            as some objects don't have status field. Defaults to None.
         """
         # This allows private class naming of nautobot objects to be ordered for delete()
         # Example definition in adapter class var: _site = Site
@@ -90,11 +91,11 @@ class DiffSyncCluster(DiffSyncExtras):
     @classmethod
     def create(cls, diffsync, ids, attrs):
         """Create Objects in Nautobot."""
-        _default_vsphere_type, _ = ClusterType.objects.get_or_create(
-            name=defaults.DEFAULT_VSPHERE_TYPE
-        )  # pylint: disable=invalid-name
-        tag_object(_default_vsphere_type)
         try:
+            _default_vsphere_type, _ = ClusterType.objects.get_or_create(
+                name=defaults.DEFAULT_VSPHERE_TYPE
+            )  # pylint: disable=invalid-name
+            tag_object(_default_vsphere_type)
             cluster, _ = Cluster.objects.get_or_create(
                 name=ids["name"],
                 type=_default_vsphere_type,
@@ -180,10 +181,10 @@ class DiffSyncVMInterface(DiffSyncExtras):
                 name=self.name,
                 virtual_machine=VirtualMachine.objects.get(name=self.virtual_machine),
             )
+            vm_interface.enabled = attrs["enabled"]
+
             if attrs.get("mac_address"):
                 vm_interface.mac_address = attrs["mac_address"]
-            if attrs.get("enabled"):
-                vm_interface.enabled = attrs["enabled"]
             # Tag and Update time stamp on object
             tag_object(vm_interface)
             # Call the super().update() method to update the in-memory DiffSyncModel instance
@@ -287,12 +288,16 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
 
     _modelname = "diffsync_virtual_machine"
     _identifiers = ("name",)
-    _attributes = ("status", "vcpus", "memory", "disk", "cluster", "primary_ip4", "primary_ip6")
+    # Handle Hypervisors users that do not use clusters.
+    if defaults.DEFAULT_USE_CLUSTERS:
+        _attributes = ("status", "vcpus", "memory", "disk", "cluster", "primary_ip4", "primary_ip6")
+        cluster: str
+    else:
+        _attributes = ("status", "vcpus", "memory", "disk", "primary_ip4", "primary_ip6")
     _children = {"diffsync_vminterface": "interfaces"}
 
     name: str
     status: Optional[str]
-    cluster: str
     vcpus: Optional[int]
     memory: Optional[int]
     disk: Optional[int]
@@ -306,7 +311,18 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
         """Create VirtualMachine in Nautobot."""
         try:
             status = Status.objects.get(name=attrs["status"])
-            cluster = Cluster.objects.get(name=attrs["cluster"])
+            if defaults.DEFAULT_USE_CLUSTERS:
+                cluster = Cluster.objects.get(name=attrs["cluster"])
+            else:
+                _default_vsphere_type, _ = ClusterType.objects.get_or_create(
+                    name=defaults.DEFAULT_VSPHERE_TYPE
+                )  # pylint: disable=invalid-name
+                tag_object(_default_vsphere_type)
+                cluster, _ = Cluster.objects.get_or_create(
+                    name=defaults.DEFAULT_CLUSTER_NAME,
+                    type=_default_vsphere_type,
+                )
+                tag_object(cluster)
             virtual_machine, _ = VirtualMachine.objects.get_or_create(
                 name=ids["name"],
                 status=status,
@@ -332,18 +348,19 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
         """Update Virtual Machine."""
         try:
             virtual_machine = VirtualMachine.objects.get(name=self.name)
-            if attrs.get("status") == "Active":
-                if not virtual_machine.status == "Active":
-                    virtual_machine.status = Status.objects.get(name="Active")
+            if attrs.get("status"):
+                vm_status = Status.objects.get(name=attrs.get("status"))
+                virtual_machine.status = vm_status
             if attrs.get("vcpus"):
                 virtual_machine.vcpus = attrs["vcpus"]
             if attrs.get("memory"):
                 virtual_machine.memory = attrs["memory"]
             if attrs.get("disk"):
                 virtual_machine.disk = attrs["disk"]
-            if attrs.get("cluster"):
-                if virtual_machine.cluster.name != attrs["cluster"]:
-                    virtual_machine.cluster = attrs["cluster"]
+            if defaults.DEFAULT_USE_CLUSTERS:
+                if attrs.get("cluster"):
+                    if virtual_machine.cluster.name != attrs["cluster"]:
+                        virtual_machine.cluster = attrs["cluster"]
             if attrs.get("primary_ip4") or attrs.get("primary_ip6"):
                 for interface in virtual_machine.interfaces.all():
                     for ip_address in interface.ip_addresses.all():
@@ -362,8 +379,13 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
             self.diffsync.job.log_warning(f"Unable to match VirtualMachine by name, {self.name}")
 
 
-DiffSyncClusterGroup.update_forward_refs()
-DiffSyncCluster.update_forward_refs()
-DiffSyncVirtualMachine.update_forward_refs()
-DiffSyncVMInterface.update_forward_refs()
-DiffSyncIpAddress.update_forward_refs()
+if defaults.DEFAULT_USE_CLUSTERS:
+    DiffSyncClusterGroup.update_forward_refs()
+    DiffSyncCluster.update_forward_refs()
+    DiffSyncVirtualMachine.update_forward_refs()
+    DiffSyncVMInterface.update_forward_refs()
+    DiffSyncIpAddress.update_forward_refs()
+else:
+    DiffSyncVirtualMachine.update_forward_refs()
+    DiffSyncVMInterface.update_forward_refs()
+    DiffSyncIpAddress.update_forward_refs()

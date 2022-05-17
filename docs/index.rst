@@ -1,28 +1,28 @@
 Welcome to Nautobot SSoT vSphere documentation!
 ==================================================
- 
+
 Overview
 ========
- 
+
 Nautobot SSoT IP vSphere documentation
 
 Contents
 ========
- 
+
 .. toctree::
    :maxdepth: 1
 
    Home <self>
-   Overview <overview.md>
+   Overview <overview>
    FAQ <FAQ>
 
 Changelog
 =========
 .. toctree::
    :maxdepth: 1
- 
-   Changelog <changelog>
- 
+
+   Changelog <CHANGELOG>
+
 API Reference
 =============
 .. toctree::
