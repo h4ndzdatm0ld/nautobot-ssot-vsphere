@@ -55,9 +55,7 @@ class VsphereClient:
             :class:`~requests.Response`: Response from the API.
         """
         url = requests.compat.urljoin(self.uri, path)
-        resp = self.session.request(method, url, **kwargs)
-
-        return resp
+        return self.session.request(method, url, **kwargs)
 
     def get_vms(self) -> Dict:
         """Get VMs."""

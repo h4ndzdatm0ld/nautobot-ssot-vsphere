@@ -44,7 +44,7 @@ namespace = Collection("nautobot_ssot_vsphere")
 namespace.configure(
     {
         "nautobot_ssot_vsphere": {
-            "nautobot_ver": "latest",
+            "nautobot_ver": "1.3.3",
             "project_name": "nautobot_ssot_vsphere",
             "python_ver": "3.9",
             "local": False,

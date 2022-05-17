@@ -25,11 +25,11 @@ The disk total is an aggregate of all virtual disks available on the virtual mac
 
 ## I use vSphere, but I don't have any Clusters. I only have VM's under hosts.
 
-The plugin was built with vSphere environments that use Clusters within Datacenters. However, there is a way to change the default bevahiour to allow sync against vSphere environments that do not use Clusters. Changing `DEFAULT_USE_CLUSTERS` to False in the Nautobot -> `nautobot_ssot_vsphere` plugin config dictionary, as well as `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` to False. This will sync VM's and their attributes only.
+The plugin was built with vSphere environments that use Clusters within Datacenters. However, there is a way to change the default behavior to allow sync against vSphere environments that do not use Clusters. Changing `DEFAULT_USE_CLUSTERS` to False in the Nautobot -> `nautobot_ssot_vsphere` plugin config dictionary, as well as `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` to False. This will sync VM's and their attributes only.
 
 > This is experimental. Also, the syncs may not behave as expected if these settings are changed once the sync has been completed with a different `Top Level` designation.
 
-The sync behaviour can be modified in several ways and the logic that enforces the diffsync `Top Level` lives in `adapters.shared.adapter_shared.py`
+The sync behavior can be modified in several ways and the logic that enforces the diffsync `Top Level` lives in `adapters.shared.adapter_shared.py`
 
 ```python
 if defaults.DEFAULT_USE_CLUSTERS:
@@ -40,3 +40,7 @@ if defaults.DEFAULT_USE_CLUSTERS:
 else:
     top_level = ["diffsync_virtual_machine"]
 ```
+
+## Is there a way to sync `hosts` into Nautobot `Device` model?
+
+The information that is able to be retrieved from vSphere API is very limited in detail and would not be enough to satisfy creating a `Device` object in Nautobot. I'm open to suggestion's or PR's to find a solution. This would require quite a bit of default settings if we were to try to fill in the gaps, which could simply pollute the data in Nautobot excessively. 

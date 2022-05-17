@@ -18,11 +18,6 @@ from nautobot.virtualization.models import (
 from nautobot_ssot_vsphere.diffsync import defaults
 from nautobot_ssot_vsphere.utilities import tag_object
 
-_DEFAULT_VSPHERE_TYPE, _ = ClusterType.objects.get_or_create(
-    name=defaults.DEFAULT_VSPHERE_TYPE
-)  # pylint: disable=invalid-name
-tag_object(_DEFAULT_VSPHERE_TYPE)
-
 
 class DiffSyncExtras(DiffSyncModel):
     """Additional components to mix and subclass from with `DiffSyncModel`."""
@@ -97,9 +92,13 @@ class DiffSyncCluster(DiffSyncExtras):
     def create(cls, diffsync, ids, attrs):
         """Create Objects in Nautobot."""
         try:
+            _default_vsphere_type, _ = ClusterType.objects.get_or_create(
+                name=defaults.DEFAULT_VSPHERE_TYPE
+            )  # pylint: disable=invalid-name
+            tag_object(_default_vsphere_type)
             cluster, _ = Cluster.objects.get_or_create(
                 name=ids["name"],
-                type=_DEFAULT_VSPHERE_TYPE,
+                type=_default_vsphere_type,
             )
             if attrs["group"]:
                 clustergroup, _ = ClusterGroup.objects.get_or_create(name=attrs["group"])
@@ -315,10 +314,15 @@ class DiffSyncVirtualMachine(DiffSyncExtras):
             if defaults.DEFAULT_USE_CLUSTERS:
                 cluster = Cluster.objects.get(name=attrs["cluster"])
             else:
+                _default_vsphere_type, _ = ClusterType.objects.get_or_create(
+                    name=defaults.DEFAULT_VSPHERE_TYPE
+                )  # pylint: disable=invalid-name
+                tag_object(_default_vsphere_type)
                 cluster, _ = Cluster.objects.get_or_create(
                     name=defaults.DEFAULT_CLUSTER_NAME,
-                    type=_DEFAULT_VSPHERE_TYPE,
+                    type=_default_vsphere_type,
                 )
+                tag_object(cluster)
             virtual_machine, _ = VirtualMachine.objects.get_or_create(
                 name=ids["name"],
                 status=status,

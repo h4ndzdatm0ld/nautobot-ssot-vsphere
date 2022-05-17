@@ -23,3 +23,7 @@
 `PRIMARY_IP_SORT_BY`
 
 - Virtual Machines can have many different IP Addresses associated to many interfaces. As there is no overall business logic that will satisfy which IP will be used as the Primary IP of a Virtual Machine in Nautobot, there is an option to decide by lowest or highest. The total number of IP's are gathered, sorted and assigned to the VM based on the value of this setting. Anything other than `Lowest` will assign the highest IP value found on the Virtual Machine.
+
+`DEFAULT_USE_CLUSTERS` and `DEFAULT_CLUSTER_NAME`
+
+- This experimental feature allows users of vSphere which contain no `Clusters` in their environment. The `DEFAULT_USE_CLUSTERS` needs to be set to `False` and a name of your choosing would be assigned to `DEFAULT_CLUSTER_NAME`. A `Cluster` is a requirement of a `Virtual Machine` in Nautobot.
