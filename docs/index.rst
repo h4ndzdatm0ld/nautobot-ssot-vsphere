@@ -1,6 +1,6 @@
 Welcome to Nautobot SSoT vSphere documentation!
 ==================================================
- 
+
 Overview
 ========
 
@@ -21,7 +21,7 @@ Changelog
 .. toctree::
    :maxdepth: 1
 
-   Changelog <changelog>
+   Changelog <CHANGELOG>
 
 API Reference
 =============
