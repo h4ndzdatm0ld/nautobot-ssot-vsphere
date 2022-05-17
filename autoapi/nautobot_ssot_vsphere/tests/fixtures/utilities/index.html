@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nautobot_ssot_vsphere.management.commands.create_env &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
+  <title>nautobot_ssot_vsphere.tests.fixtures.utilities &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
@@ -62,9 +62,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.management.commands.create_env</span></code></li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.tests.fixtures.utilities</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../../_sources/autoapi/nautobot_ssot_vsphere/management/commands/create_env/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../../_sources/autoapi/nautobot_ssot_vsphere/tests/fixtures/utilities/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,35 +72,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-nautobot_ssot_vsphere.management.commands.create_env">
-<span id="nautobot-ssot-vsphere-management-commands-create-env"></span><h1><a class="reference internal" href="#module-nautobot_ssot_vsphere.management.commands.create_env" title="nautobot_ssot_vsphere.management.commands.create_env"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.management.commands.create_env</span></code></a><a class="headerlink" href="#module-nautobot_ssot_vsphere.management.commands.create_env" title="Permalink to this headline"></a></h1>
-<p>Management command to bootstrap dummy data for Reservations.</p>
+  <section id="module-nautobot_ssot_vsphere.tests.fixtures.utilities">
+<span id="nautobot-ssot-vsphere-tests-fixtures-utilities"></span><h1><a class="reference internal" href="#module-nautobot_ssot_vsphere.tests.fixtures.utilities" title="nautobot_ssot_vsphere.tests.fixtures.utilities"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere.tests.fixtures.utilities</span></code></a><a class="headerlink" href="#module-nautobot_ssot_vsphere.tests.fixtures.utilities" title="Permalink to this headline"></a></h1>
+<p>Test Utils.</p>
 <section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
-<section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline"></a></h3>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.management.commands.create_env.Command" title="nautobot_ssot_vsphere.management.commands.create_env.Command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Command</span></code></a></p></td>
-<td><p>Publish command to bootstrap dummy data.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nautobot_ssot_vsphere.tests.fixtures.utilities.json_fixture" title="nautobot_ssot_vsphere.tests.fixtures.utilities.json_fixture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">json_fixture</span></code></a>(json_file_path)</p></td>
+<td><p>Load and return JSON Fixture.</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt class="sig sig-object py" id="nautobot_ssot_vsphere.management.commands.create_env.Command">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.management.commands.create_env.</span></span><span class="sig-name descname"><span class="pre">Command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stdout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stderr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.management.commands.create_env.Command" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">django.core.management.base.BaseCommand</span></code></p>
-<p>Publish command to bootstrap dummy data.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="nautobot_ssot_vsphere.management.commands.create_env.Command.handle">
-<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.management.commands.create_env.Command.handle" title="Permalink to this definition"></a></dt>
-<dd><p>Publish command to bootstrap dummy data.</p>
-</dd></dl>
-
+<dl class="py function">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.fixtures.utilities.json_fixture">
+<span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.tests.fixtures.utilities.</span></span><span class="sig-name descname"><span class="pre">json_fixture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.fixtures.utilities.json_fixture" title="Permalink to this definition"></a></dt>
+<dd><p>Load and return JSON Fixture.</p>
 </dd></dl>
 
 </section>

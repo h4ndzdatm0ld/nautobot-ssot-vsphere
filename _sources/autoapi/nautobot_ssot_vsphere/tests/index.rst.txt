@@ -26,5 +26,6 @@ Submodules
 
    test_api/index.rst
    test_basic/index.rst
+   test_vsphere_client/index.rst
 
 

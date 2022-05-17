@@ -1,0 +1,124 @@
+:py:mod:`nautobot_ssot_vsphere.tests.test_vsphere_client`
+=========================================================
+
+.. py:module:: nautobot_ssot_vsphere.tests.test_vsphere_client
+
+.. autoapi-nested-parse::
+
+   Test vSphere client.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.test_vsphere_client.FIXTURES
+
+
+.. py:data:: FIXTURES
+   
+
+   
+
+.. py:class:: TestVsphere(methodName='runTest')
+
+   Bases: :py:obj:`nautobot.utilities.testing.TestCase`
+
+   Test Base vSphere Client and Calls.
+
+   .. py:method:: setUp(self, mock_session)
+
+      Setup.
+
+
+   .. py:method:: test_init_success(self)
+
+      Assert proper initialization of client.
+
+
+   .. py:method:: test_init_missing_uri(self)
+
+      Assert proper initialization of client, raise ValErr from creds/uri.
+
+
+   .. py:method:: test_init_uri_not_str(self)
+
+      Assert proper initialization of client, failure from uri not a str.
+
+
+   .. py:method:: test_ssl_not_verify(self)
+
+      Test verify SSL False.
+
+
+   .. py:method:: test_get_vms(self)
+
+      Test Get VMs API Call.
+
+
+   .. py:method:: test_get_vms_from_cluster(self)
+
+      Test Get VMs from cluster API Call.
+
+
+   .. py:method:: test_get_vms_from_dc(self)
+
+      Test Get VMs from DC API Call.
+
+
+   .. py:method:: test_get_datacenters(self)
+
+      Test Get DC's API Call.
+
+
+   .. py:method:: test_get_clusters(self)
+
+      Test Get Clusters API Call.
+
+
+   .. py:method:: test_get_cluster_details(self)
+
+      Test Get Clusters Detail API Call.
+
+
+   .. py:method:: test_get_dc_details(self)
+
+      Test Get DC Details API Call.
+
+
+   .. py:method:: test_get_vm_interfaces(self)
+
+      Test Get VM Interface Details API Call.
+
+
+   .. py:method:: test_get_vm_details(self)
+
+      Test Get VM Details API Call.
+
+
+   .. py:method:: test_get_host_from_clusters(self)
+
+      Test Get host from clusters API Call.
+
+
+   .. py:method:: test_get_host_details(self)
+
+      Test Get host details API Call.
+
+
+

@@ -7,6 +7,18 @@
 
    Fixtures.
 
+   In your test file, simply import:
+   ```
+   from nautobot_ssot_vsphere.tests.utilities import json_fixture
+   from nautobot_ssot_vsphere.tests.fixtures import real_path
+   ```
+   Then you can simply load fixtures that you have added to the fixtures directory
+   and assign them to your mocks by using the json_fixture utility:
+
+   json_fixture(f"{FIXTURES}/get_projects.json")
+
+   This will return a loaded json object.
+
 
 
 Submodules
@@ -16,6 +28,7 @@ Submodules
    :maxdepth: 1
 
    nautobot_fixtures/index.rst
+   utilities/index.rst
 
 
 Package Contents
@@ -28,11 +41,17 @@ Functions
 .. autoapisummary::
 
    nautobot_ssot_vsphere.tests.fixtures.create_env
+   nautobot_ssot_vsphere.tests.fixtures.json_fixture
 
 
 
 .. py:function:: create_env()
 
    Create Env.
+
+
+.. py:function:: json_fixture(json_file_path)
+
+   Load and return JSON Fixture.
 
 

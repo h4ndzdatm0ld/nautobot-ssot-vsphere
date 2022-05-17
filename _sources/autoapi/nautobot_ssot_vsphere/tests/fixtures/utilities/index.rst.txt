@@ -1,0 +1,29 @@
+:py:mod:`nautobot_ssot_vsphere.tests.fixtures.utilities`
+========================================================
+
+.. py:module:: nautobot_ssot_vsphere.tests.fixtures.utilities
+
+.. autoapi-nested-parse::
+
+   Test Utils.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nautobot_ssot_vsphere.tests.fixtures.utilities.json_fixture
+
+
+
+.. py:function:: json_fixture(json_file_path)
+
+   Load and return JSON Fixture.
+
+
