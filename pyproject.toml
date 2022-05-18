@@ -21,6 +21,7 @@ packages = [
 python = "^3.7"
 diffsync = "^1.4.3"
 nautobot-ssot = "^1.1.0"
+netutils = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 bandit = "*"

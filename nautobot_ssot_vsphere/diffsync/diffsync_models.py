@@ -14,7 +14,7 @@ from nautobot.virtualization.models import (
     VirtualMachine,
     VMInterface,
 )
-
+from netutils.mac import is_valid_mac
 from nautobot_ssot_vsphere.diffsync import defaults
 from nautobot_ssot_vsphere.utilities import tag_object
 
@@ -163,16 +163,21 @@ class DiffSyncVMInterface(DiffSyncExtras):
     def delete(self) -> Optional["DiffSyncModel"]:
         """Delete VMInterfaces from Virtual Machine."""
         try:
-            self.ordered_delete(
-                VMInterface.objects.get(
+            if is_valid_mac(self.mac_address):
+                interface = VMInterface.objects.get(
                     name=self.name,
                     virtual_machine=VirtualMachine.objects.get(name=self.virtual_machine),
                     mac_address=self.mac_address,
                 )
-            )
+            else:
+                interface = VMInterface.objects.get(
+                    name=self.name,
+                    virtual_machine=VirtualMachine.objects.get(name=self.virtual_machine),
+                )
+            self.ordered_delete(interface)
             return self
-        except VirtualMachine.DoesNotExist:
-            self.diffsync.job.log_warning(f"Unable to match VirtualMachine by name, {self.name}")
+        except VMInterface.DoesNotExist:
+            self.diffsync.job.log_warning(f"Unable to match VMInterface by name, {self.name}")
 
     def update(self, attrs):
         """Update VMInterface on Virtual Machine."""
