@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frequently Asked Questions &mdash; Nautobot SSOT vSphere 0.1.0 documentation</title>
+  <title>Frequently Asked Questions &mdash; Nautobot SSOT vSphere 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -46,6 +46,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#measurements-of-capacity-disks">Measurements of Capacity (Disks)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts">I use vSphere, but I don’t have any Clusters. I only have VM’s under hosts.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#is-there-a-way-to-sync-hosts-into-nautobot-device-model">Is there a way to sync <code class="docutils literal notranslate"><span class="pre">hosts</span></code> into Nautobot <code class="docutils literal notranslate"><span class="pre">Device</span></code> model?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#warning-error-cluster-name-is-missing-association-to-a-cluster-group-please-correct-to-ensure-proper-sync-enforce-cluster-group-top-level-is-enabled">Warning Error: <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">cluster_name</span> <span class="pre">}},</span> <span class="pre">is</span> <span class="pre">missing</span> <span class="pre">association</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">Cluster</span> <span class="pre">Group.</span> <span class="pre">Please</span> <span class="pre">correct</span> <span class="pre">to</span> <span class="pre">ensure</span> <span class="pre">proper</span> <span class="pre">sync.</span> <span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span> <span class="pre">is</span> <span class="pre">enabled.</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -124,6 +125,10 @@
 <section id="is-there-a-way-to-sync-hosts-into-nautobot-device-model">
 <h2>Is there a way to sync <code class="docutils literal notranslate"><span class="pre">hosts</span></code> into Nautobot <code class="docutils literal notranslate"><span class="pre">Device</span></code> model?<a class="headerlink" href="#is-there-a-way-to-sync-hosts-into-nautobot-device-model" title="Permalink to this headline"></a></h2>
 <p>The information that is able to be retrieved from vSphere API is very limited in detail and would not be enough to satisfy creating a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object in Nautobot. I’m open to suggestion’s or PR’s to find a solution. This would require quite a bit of default settings if we were to try to fill in the gaps, which could simply pollute the data in Nautobot excessively.</p>
+</section>
+<section id="warning-error-cluster-name-is-missing-association-to-a-cluster-group-please-correct-to-ensure-proper-sync-enforce-cluster-group-top-level-is-enabled">
+<h2>Warning Error: <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">cluster_name</span> <span class="pre">}},</span> <span class="pre">is</span> <span class="pre">missing</span> <span class="pre">association</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">Cluster</span> <span class="pre">Group.</span> <span class="pre">Please</span> <span class="pre">correct</span> <span class="pre">to</span> <span class="pre">ensure</span> <span class="pre">proper</span> <span class="pre">sync.</span> <span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span> <span class="pre">is</span> <span class="pre">enabled.</span></code><a class="headerlink" href="#warning-error-cluster-name-is-missing-association-to-a-cluster-group-please-correct-to-ensure-proper-sync-enforce-cluster-group-top-level-is-enabled" title="Permalink to this headline"></a></h2>
+<p>Diffsync Top Level can be manipulated via configuration options for the Plugin. If an existent Cluster is found in Nautobot during a sync job without association to the Cluster Group, the sync won’t update correctly. Either manually add the ClusterGroup to the Cluster in the UI, change the <code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> and use the <code class="docutils literal notranslate"><span class="pre">Cluster</span></code> as the top level or as last resort, remove the Cluster from Nautobot and start a fresh sync from vSphere with this application.</p>
 </section>
 </section>
 
