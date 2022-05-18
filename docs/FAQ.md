@@ -44,3 +44,7 @@ else:
 ## Is there a way to sync `hosts` into Nautobot `Device` model?
 
 The information that is able to be retrieved from vSphere API is very limited in detail and would not be enough to satisfy creating a `Device` object in Nautobot. I'm open to suggestion's or PR's to find a solution. This would require quite a bit of default settings if we were to try to fill in the gaps, which could simply pollute the data in Nautobot excessively. 
+
+## Warning Error: `{{ cluster_name }}, is missing association to a Cluster Group. Please correct to ensure proper sync. ENFORCE_CLUSTER_GROUP_TOP_LEVEL is enabled.`
+
+Diffsync Top Level can be manipulated via configuration options for the Plugin. If an existent Cluster is found in Nautobot during a sync job without association to the Cluster Group, the sync won't update correctly. Either manually add the ClusterGroup to the Cluster in the UI, change the `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` to `False` and use the `Cluster` as the top level or as last resort, remove the Cluster from Nautobot and start a fresh sync from vSphere with this application. 
