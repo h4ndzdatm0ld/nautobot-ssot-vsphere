@@ -40,6 +40,7 @@ class VsphereDiffSync(DiffSyncModelAdapters):
     def load_cluster_groups(self):
         """Load Cluster Groups (DataCenters)."""
         clustergroups = self.client.get_datacenters().json()["value"]
+        self.job.log_debug(message=f"Loading ClusterGroups {clustergroups}")
         for clustergroup in clustergroups:
             self.get_or_instantiate(self.diffsync_clustergroup, {"name": clustergroup["name"]})
         return clustergroups
@@ -47,6 +48,8 @@ class VsphereDiffSync(DiffSyncModelAdapters):
     def load_virtualmachines(self, cluster, diffsync_cluster):
         """Load Virtual Machines."""
         virtual_machines = self.client.get_vms_from_cluster(cluster["cluster"]).json()["value"]
+        self.job.log_debug(message=f"Loading VirtualMachines from Cluster {cluster}: {virtual_machines}")
+
         for virtual_machine in virtual_machines:
             virtual_machine_details = self.client.get_vm_details(virtual_machine["vm"]).json()["value"]
             diffsync_virtualmachine, _ = self.get_or_instantiate(
@@ -119,13 +122,13 @@ class VsphereDiffSync(DiffSyncModelAdapters):
         else:
             if ipv4_addresses:
                 diffsync_virtualmachine.primary_ip4 = str(ipv4_addresses[-1])
-
             if ipv6_addresses:
                 diffsync_virtualmachine.primary_ip6 = str(ipv6_addresses[-1])
 
     def load_vm_interfaces(self, vsphere_virtual_machine, vm_id, diffsync_virtualmachine):
         """Load VM Interfaces."""
         nics = vsphere_virtual_machine["nics"]
+        self.job.log_debug(message=f"Loading NICs for VM-ID {vm_id}: {nics}")
         # Get all IPAdders from ALL Nics on Virtual Machine
         addrs4 = []
         addrs6 = []
@@ -191,6 +194,7 @@ class VsphereDiffSync(DiffSyncModelAdapters):
         virtual_machines = self.client.get_vms().json()["value"]
         for virtual_machine in virtual_machines:
             virtual_machine_details = self.client.get_vm_details(virtual_machine["vm"]).json()["value"]
+            self.job.log_debug(message=f"Virtual Machine Details: {virtual_machine_details}")
             diffsync_virtualmachine, _ = self.get_or_instantiate(
                 self.diffsync_virtual_machine,
                 {"name": virtual_machine["name"]},
