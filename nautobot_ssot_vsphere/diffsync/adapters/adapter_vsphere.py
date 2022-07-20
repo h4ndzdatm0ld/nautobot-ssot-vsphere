@@ -85,7 +85,7 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 self.job.log_debug(message=f"Loading IP Addresses {interface}")
                 # Convert to IP Object if IPV4 or IPV6 and add to list by version
                 addr = create_ipaddr(ip_address["ip_address"])
-                ipv4_addresses.append(addr) if addr.version == 4 else ipv6_addresses.append(addr)
+                _ = ipv4_addresses.append(addr) if addr.version == 4 else ipv6_addresses.append(addr)
                 # Update DiffsyncIpAddress
                 diffsync_ipaddress, _ = self.get_or_instantiate(
                     self.diffsync_ipaddress,
