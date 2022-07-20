@@ -78,17 +78,15 @@ class VsphereDiffSync(DiffSyncModelAdapters):
             if not isinstance(interface, dict):
                 continue
             current_mac = interface["mac_address"].lower() if interface.get("mac_address") else None
-            if not current_mac == mac_address:
+            if not current_mac == mac_address or not interface.get("ip"):
                 continue
             # Capture all IP Addresses
             for ip_address in interface["ip"]["ip_addresses"]:
+                self.job.log_debug(message=f"Loading IP Addresses {interface}")
                 # Convert to IP Object if IPV4 or IPV6 and add to list by version
                 addr = create_ipaddr(ip_address["ip_address"])
-                if addr.version == 4:
-                    ipv4_addresses.append(addr)
-                else:
-                    ipv6_addresses.append(addr)
-
+                ipv4_addresses.append(addr) if addr.version == 4 else ipv6_addresses.append(addr)
+                # Update DiffsyncIpAddress
                 diffsync_ipaddress, _ = self.get_or_instantiate(
                     self.diffsync_ipaddress,
                     {"ip_address": ip_address["ip_address"], "prefix_length": ip_address["prefix_length"]},
@@ -124,10 +122,6 @@ class VsphereDiffSync(DiffSyncModelAdapters):
 
             if ipv6_addresses:
                 diffsync_virtualmachine.primary_ip6 = str(ipv6_addresses[-1])
-
-        # self.job.log_debug(
-        #     message=f"Assigning {diffsync_virtualmachine.primary_ip6} as primary to {diffsync_virtualmachine.name}"
-        # )
 
     def load_vm_interfaces(self, vsphere_virtual_machine, vm_id, diffsync_virtualmachine):
         """Load VM Interfaces."""
