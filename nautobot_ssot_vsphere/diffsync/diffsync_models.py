@@ -15,6 +15,7 @@ from nautobot.virtualization.models import (
     VMInterface,
 )
 from netutils.mac import is_valid_mac
+
 from nautobot_ssot_vsphere.diffsync import defaults
 from nautobot_ssot_vsphere.utilities import tag_object
 
