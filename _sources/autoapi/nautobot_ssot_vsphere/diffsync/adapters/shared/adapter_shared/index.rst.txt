@@ -22,7 +22,7 @@ Classes
 
 
 
-.. py:class:: DiffSyncModelAdapters(name=None)
+.. py:class:: DiffSyncModelAdapters(name=None, internal_storage_engine=LocalStore)
 
    Bases: :py:obj:`diffsync.DiffSync`
 

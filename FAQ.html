@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frequently Asked Questions &mdash; Nautobot SSOT vSphere 0.1.1 documentation</title>
+  <title>Frequently Asked Questions &mdash; Nautobot SSOT vSphere 0.1.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -15,6 +15,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -82,9 +83,9 @@
            <div itemprop="articleBody">
              
   <section id="frequently-asked-questions">
-<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline"></a></h1>
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this heading"></a></h1>
 <section id="a-diff-always-appears-even-if-virtual-machines-are-created-why">
-<h2>A diff always appears even if virtual machines are created. Why?<a class="headerlink" href="#a-diff-always-appears-even-if-virtual-machines-are-created-why" title="Permalink to this headline"></a></h2>
+<h2>A diff always appears even if virtual machines are created. Why?<a class="headerlink" href="#a-diff-always-appears-even-if-virtual-machines-are-created-why" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code> DiffSync object is the <code class="docutils literal notranslate"><span class="pre">Cluster</span> <span class="pre">Group</span></code> which translates to a vSphere <code class="docutils literal notranslate"><span class="pre">DataCenter</span></code>. A DataCenter can house many <code class="docutils literal notranslate"><span class="pre">Clusters</span></code>. The problem happens when a Cluster created in Nautobot, does not belong to a <code class="docutils literal notranslate"><span class="pre">ClusterGroup</span></code>. If this is the case, they will never be registered into the common DiffSync model, thus appearing as a diff.</p></li>
 </ul>
@@ -102,11 +103,11 @@
 <p>A configuration setting <code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code> is defaulted to true, enforcing this pattern. If you’d like to allow <code class="docutils literal notranslate"><span class="pre">Clusters</span></code> to be the <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code>, simply set this setting to False.</p>
 </section>
 <section id="measurements-of-capacity-disks">
-<h2>Measurements of Capacity (Disks)<a class="headerlink" href="#measurements-of-capacity-disks" title="Permalink to this headline"></a></h2>
+<h2>Measurements of Capacity (Disks)<a class="headerlink" href="#measurements-of-capacity-disks" title="Permalink to this heading"></a></h2>
 <p>The disk total is an aggregate of all virtual disks available on the virtual machine.</p>
 </section>
 <section id="i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts">
-<h2>I use vSphere, but I don’t have any Clusters. I only have VM’s under hosts.<a class="headerlink" href="#i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts" title="Permalink to this headline"></a></h2>
+<h2>I use vSphere, but I don’t have any Clusters. I only have VM’s under hosts.<a class="headerlink" href="#i-use-vsphere-but-i-don-t-have-any-clusters-i-only-have-vm-s-under-hosts" title="Permalink to this heading"></a></h2>
 <p>The plugin was built with vSphere environments that use Clusters within Datacenters. However, there is a way to change the default behavior to allow sync against vSphere environments that do not use Clusters. Changing <code class="docutils literal notranslate"><span class="pre">DEFAULT_USE_CLUSTERS</span></code> to False in the Nautobot -&gt; <code class="docutils literal notranslate"><span class="pre">nautobot_ssot_vsphere</span></code> plugin config dictionary, as well as <code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code> to False. This will sync VM’s and their attributes only.</p>
 <blockquote>
 <div><p>This is experimental. Also, the syncs may not behave as expected if these settings are changed once the sync has been completed with a different <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code> designation.</p>
@@ -123,11 +124,11 @@
 </div>
 </section>
 <section id="is-there-a-way-to-sync-hosts-into-nautobot-device-model">
-<h2>Is there a way to sync <code class="docutils literal notranslate"><span class="pre">hosts</span></code> into Nautobot <code class="docutils literal notranslate"><span class="pre">Device</span></code> model?<a class="headerlink" href="#is-there-a-way-to-sync-hosts-into-nautobot-device-model" title="Permalink to this headline"></a></h2>
+<h2>Is there a way to sync <code class="docutils literal notranslate"><span class="pre">hosts</span></code> into Nautobot <code class="docutils literal notranslate"><span class="pre">Device</span></code> model?<a class="headerlink" href="#is-there-a-way-to-sync-hosts-into-nautobot-device-model" title="Permalink to this heading"></a></h2>
 <p>The information that is able to be retrieved from vSphere API is very limited in detail and would not be enough to satisfy creating a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object in Nautobot. I’m open to suggestion’s or PR’s to find a solution. This would require quite a bit of default settings if we were to try to fill in the gaps, which could simply pollute the data in Nautobot excessively.</p>
 </section>
 <section id="warning-error-cluster-name-is-missing-association-to-a-cluster-group-please-correct-to-ensure-proper-sync-enforce-cluster-group-top-level-is-enabled">
-<h2>Warning Error: <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">cluster_name</span> <span class="pre">}},</span> <span class="pre">is</span> <span class="pre">missing</span> <span class="pre">association</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">Cluster</span> <span class="pre">Group.</span> <span class="pre">Please</span> <span class="pre">correct</span> <span class="pre">to</span> <span class="pre">ensure</span> <span class="pre">proper</span> <span class="pre">sync.</span> <span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span> <span class="pre">is</span> <span class="pre">enabled.</span></code><a class="headerlink" href="#warning-error-cluster-name-is-missing-association-to-a-cluster-group-please-correct-to-ensure-proper-sync-enforce-cluster-group-top-level-is-enabled" title="Permalink to this headline"></a></h2>
+<h2>Warning Error: <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">cluster_name</span> <span class="pre">}},</span> <span class="pre">is</span> <span class="pre">missing</span> <span class="pre">association</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">Cluster</span> <span class="pre">Group.</span> <span class="pre">Please</span> <span class="pre">correct</span> <span class="pre">to</span> <span class="pre">ensure</span> <span class="pre">proper</span> <span class="pre">sync.</span> <span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span> <span class="pre">is</span> <span class="pre">enabled.</span></code><a class="headerlink" href="#warning-error-cluster-name-is-missing-association-to-a-cluster-group-please-correct-to-ensure-proper-sync-enforce-cluster-group-top-level-is-enabled" title="Permalink to this heading"></a></h2>
 <p>Diffsync Top Level can be manipulated via configuration options for the Plugin. If an existent Cluster is found in Nautobot during a sync job without association to the Cluster Group, the sync won’t update correctly. Either manually add the ClusterGroup to the Cluster in the UI, change the <code class="docutils literal notranslate"><span class="pre">ENFORCE_CLUSTER_GROUP_TOP_LEVEL</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> and use the <code class="docutils literal notranslate"><span class="pre">Cluster</span></code> as the top level or as last resort, remove the Cluster from Nautobot and start a fresh sync from vSphere with this application.</p>
 </section>
 </section>
