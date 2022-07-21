@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nautobot-ssot-vsphere"
-version = "0.1.1"
+version = "0.1.2"
 description = "Nautobot SSoT vSphere"
 authors = ["h4ndzdatm0ld <hugotinoco@icloud.com>"]
 license = "Apache-2.0"

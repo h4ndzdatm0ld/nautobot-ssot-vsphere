@@ -315,7 +315,7 @@ def black(context, autoformat=False):
 @task
 def flake8(context):
     """Check for PEP8 compliance and other style issues."""
-    command = "flake8 . --max-line-length=120"
+    command = "flake8 . --max-line-length=120 --ignore=E701"
     run_command(context, command)
 
 
