@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Added default setting to always drop link-local addresses from IPv6 assigned interfaces from vSphere
+- Added default (configurable) setting to always drop link-local addresses from IPv6 assigned interfaces from vSphere
 - Added logging to interface addresses dropped
 
 ### Changed
