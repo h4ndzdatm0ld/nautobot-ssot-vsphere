@@ -88,6 +88,11 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 self.job.log_debug(message=f"Loading IP Addresses {interface}")
                 # Convert to IP Object if IPV4 or IPV6 and add to list by version
                 addr = create_ipaddr(ip_address["ip_address"])
+                # Check if IPv6 is a Link Local. If it is, skip it.
+                if defaults.DEFAULT_IGNORE_LINK_LOCAL:
+                    if addr.version == 6 and addr.is_link_local:
+                        self.job.log_debug(message=f"Skipping Link Local Address: {ip_address}")
+                        continue
                 _ = ipv4_addresses.append(addr) if addr.version == 4 else ipv6_addresses.append(addr)
                 # Update DiffsyncIpAddress
                 diffsync_ipaddress, _ = self.get_or_instantiate(
@@ -153,8 +158,8 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                     nic_mac,
                     diffsync_vminterface,
                 )
-                [addrs4.append(str(addr)) for addr in ipv4_addresses]  # pylint: disable=expression-not-assigned
-                [addrs6.append(str(addr)) for addr in ipv6_addresses]  # pylint: disable=expression-not-assigned
+                _ = [addrs4.append(str(addr)) for addr in ipv4_addresses]
+                _ = [addrs6.append(str(addr)) for addr in ipv6_addresses]
 
         # Sort through all IP's on
         self.load_primary_ip(addrs4, addrs6, diffsync_virtualmachine)
