@@ -77,3 +77,8 @@ Module Contents
 
    
 
+.. py:data:: DEFAULT_IGNORE_LINK_LOCAL
+   
+
+   
+

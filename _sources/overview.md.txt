@@ -27,3 +27,7 @@
 `DEFAULT_USE_CLUSTERS` and `DEFAULT_CLUSTER_NAME`
 
 - This experimental feature allows users of vSphere which contain no `Clusters` in their environment. The `DEFAULT_USE_CLUSTERS` needs to be set to `False` and a name of your choosing would be assigned to `DEFAULT_CLUSTER_NAME`. A `Cluster` is a requirement of a `Virtual Machine` in Nautobot.
+
+`DEFAULT_IGNORE_LINK_LOCAL`
+
+- Defaults to `True` and drops any link-local address found on a vSphere vm that has an IPv6 address assigned.
