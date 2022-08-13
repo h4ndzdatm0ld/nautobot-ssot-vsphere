@@ -2,13 +2,11 @@
 
 A plugin for [Nautobot](https://github.com/nautobot/nautobot) that leverages the SSoT plugin to create Virtual Machines, VMInterfaces, IPAddresses, Clusters, and Cluster Groups from VMWare vSphere.
 
-![JobOverview](docs/images/job_overview.png)
-![VirtualMachines](docs/images/virtualmachines.png)
+![JobOverview](docs/images/job_overview.png) ![VirtualMachines](docs/images/virtualmachines.png)
 
 ## The future of Virtual Machine In Nautobot
 
-There is discussion in place to that will bring big changes to VirtualMachine and VMInterface targeted for release 2.0.
-See the [issue](https://github.com/nautobot/nautobot/issues/1178)
+There is discussion in place to that will bring big changes to VirtualMachine and VMInterface targeted for release 2.0. See the [issue](https://github.com/nautobot/nautobot/issues/1178)
 
 When that time comes, this application will need to be updated to handle the new core model structure
 
@@ -55,6 +53,7 @@ The plugin behavior can be controlled with additional configuration settings
 - `PRIMARY_IP_SORT_BY` Defaults to "Lowest"
 - `DEFAULT_USE_CLUSTERS` Defaults to `True`
 - `DEFAULT_CLUSTER_NAME` Defaults to "vSphere Default Cluster"
+- `DEFAULT_IGNORE_LINK_LOCAL` Defaults to `True`
 ```
 
 To get a detailed description on each configuration setting, head over to the [Overview](https://h4ndzdatm0ld.github.io/nautobot-ssot-vsphere/overview.html) documentation.
