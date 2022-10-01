@@ -44,7 +44,7 @@ sphinx-rtd-theme = "*"
 sphinx-autoapi = "*"
 jedi = "*"
 toml = "*"
-responses = "^0.20.0"
+responses = "*"
 
 [tool.poetry.extras]
 nautobot = ["nautobot"]
