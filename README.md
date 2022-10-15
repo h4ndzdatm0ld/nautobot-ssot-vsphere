@@ -47,7 +47,7 @@ The plugin behavior can be controlled with additional configuration settings
 ```bash
 - `VSPHERE_TYPE` Defaults to `VMWare vSphere`
 - `ENFORCE_CLUSTER_GROUP_TOP_LEVEL` Defaults to True
-- `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active"}
+- `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active", "SUSPENDED": "Suspended"}
 - `VSPHERE_IP_STATUS_MAP` Defaults to {"PREFERRED": "Active", "UNKNOWN": "Reserved"}
 - `VSPHERE_VM_INTERFACE_MAP` Defaults to {"NOT_CONNECTED": False, "CONNECTED": True}
 - `PRIMARY_IP_SORT_BY` Defaults to "Lowest"

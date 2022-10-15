@@ -15,7 +15,7 @@
 - These are dictionary (maps) that translate the vSphere value to something Nautobot can understand. You must be sure that the values provided are valid before manipulating these maps.
 
 ```bash
-- `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active"}
+- `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active", "SUSPENDED": "Suspended"}
 - `VSPHERE_IP_STATUS_MAP` Defaults to {"PREFERRED": "Active", "UNKNOWN": "Reserved"}
 - `VSPHERE_VM_INTERFACE_MAP` Defaults to {"NOT_CONNECTED": False, "CONNECTED": True}
 ```

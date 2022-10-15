@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 
 - CodeQL Action
+- `SUSPENDED` state as a default to `Offline`
 
 ### Changed
 
@@ -16,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Added a Nautobot version to the testing matrix in CI
 - Bumped `oauthlib` to 3.2.1
 - Unpinned `responses` testing library
+
+### Fixed
+
+- Exception raised when a vm doesn't have any disks.
 
 ### Removed
 
