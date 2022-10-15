@@ -108,9 +108,40 @@ class NautobotDiffSync(DiffSyncModelAdapters):
         for diffsync_clustergroup in cluster_groups:
             self.get_or_instantiate(self.diffsync_clustergroup, {"name": diffsync_clustergroup.name})
 
-    def load_virtual_machines(self):
+    # TODO: (HUGO) Create a generic filtering func to repeat this logic for other objects
+    def get_initial_vms(self, ssot_tag: Tag):
+        """Identify the VirtualMachine objects based on user defined job inputs.
+
+        Args:
+            ssot_tag (Tag): Tag used for filtering
+        """
+        # Simple check / validate Tag is present.
+        if self.sync_vsphere_tagged_only:
+            self.job.log_debug(f"Filtering VirtualMachines by Tag `{ssot_tag.slug}`")
+            virtual_machines = VirtualMachine.objects.filter(tags__slug=ssot_tag.slug)
+            self.job.log_debug(f"Found VirtualMachines by Tag {virtual_machines.count()}")
+            if self.cluster_filter:
+                self.job.log_debug(
+                    f"Filtering VirtualMachines by Tag `{ssot_tag.slug}` and Cluster `{self.cluster_filter.name}`"
+                )
+                virtual_machines = VirtualMachine.objects.filter(
+                    Q(cluster=self.cluster_filter) & Q(tags__slug=ssot_tag.slug)
+                )
+                if not virtual_machines:
+                    self.job.log_warning(
+                        message=f"{self.cluster_filter.name} was used to filter, alongside SSoT Tag. {self.cluster_filter.name} is potentially not tagged. No objects found."  # NOQA
+                    )
+        elif not self.sync_vsphere_tagged_only:
+            if self.cluster_filter:
+                virtual_machines = VirtualMachine.objects.filter(name=self.cluster_filter.name)
+            else:
+                virtual_machines = VirtualMachine.objects.all()
+        return virtual_machines
+
+    def load_virtual_machines(self, ssot_tag: Tag):
         """Load Nautobot Virtual Machines."""
-        virtual_machines = VirtualMachine.objects.all()
+        # Capture virtual machines with conditional logic based on user input | filters
+        virtual_machines = self.get_initial_vms(ssot_tag)
         self.job.log_debug(f"Found {virtual_machines.count()} Virtual Machine objects")
         for virtual_machine in virtual_machines:
             diffsync_virtualmachine, _ = self.get_or_instantiate(
@@ -192,9 +223,9 @@ class NautobotDiffSync(DiffSyncModelAdapters):
         self.load_clustergroups()
         # Load Clusters. This can used to filter by TAG or Cluster to minimize
         # The number of Virtual Machines from vSphere coming into Nautobot.
-        self.load_clusters(ssot_tag)
+        self.load_clusters(ssot_tag=ssot_tag)
         # Load Virtual Machine
-        self.load_virtual_machines()
+        self.load_virtual_machines(ssot_tag=ssot_tag)
 
     def load(self):
         """Load data from Nautobot."""
