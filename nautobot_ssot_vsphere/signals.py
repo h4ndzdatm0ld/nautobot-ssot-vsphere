@@ -1,3 +1,4 @@
+# pylint: disable=too-many-locals
 """Signal handlers for nautobot_ssot_vsphere."""
 
 from typing import List, Optional
@@ -56,6 +57,14 @@ def nautobot_database_ready_callback(sender, *, apps, **kwargs):  # pylint: disa
     ClusterType = apps.get_model("virtualization", "ClusterType")
     VMInterface = apps.get_model("virtualization", "VMInterface")
     IPAddress = apps.get_model("ipam", "IPAddress")
+    Status = apps.get_model("extras", "Status")
+    ContentType = apps.get_model("contenttypes", "ContentType")  # pylint:disable=invalid-name
+
+    status, _ = Status.objects.get_or_create(
+        name="Suspended", slug="suspended", description="Machine is in a suspended state"
+    )
+    status.content_types.add(ContentType.objects.get_for_model(VirtualMachine))
+    status.save()
 
     tag, _ = Tag.objects.get_or_create(
         slug="ssot-synced-from-vsphere",
