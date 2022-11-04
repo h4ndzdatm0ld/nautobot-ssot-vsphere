@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - Exception raised when a vm doesn't have any disks.
+- Filtering logic was missing to aggregate VM's from nautobot, if defined in job args
 
 ### Removed
 
