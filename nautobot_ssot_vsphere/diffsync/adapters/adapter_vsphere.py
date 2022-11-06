@@ -58,7 +58,9 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 {
                     "vcpus": virtual_machine["cpu_count"],
                     "memory": virtual_machine["memory_size_MiB"],
-                    "disk": get_disk_total(virtual_machine_details["disks"]),
+                    "disk": get_disk_total(virtual_machine_details["disks"])
+                    if virtual_machine_details.get("disks")
+                    else None,
                     "status": defaults.DEFAULT_VM_STATUS_MAP[virtual_machine_details["power_state"]],
                     "cluster": cluster["name"],
                 },
@@ -206,7 +208,9 @@ class VsphereDiffSync(DiffSyncModelAdapters):
                 {
                     "vcpus": virtual_machine["cpu_count"],
                     "memory": virtual_machine["memory_size_MiB"],
-                    "disk": get_disk_total(virtual_machine_details["disks"]),
+                    "disk": get_disk_total(virtual_machine_details["disks"])
+                    if virtual_machine_details.get("disks")
+                    else None,
                     "status": defaults.DEFAULT_VM_STATUS_MAP[virtual_machine_details["power_state"]],
                     "cluster": defaults.DEFAULT_CLUSTER_NAME,
                 },
