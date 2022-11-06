@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2022-11-06
+
+### Added
+
+- CodeQL Action
+- `SUSPENDED` state as a default to `Offline`
+
+### Changed
+
+- Bumped version of Poetry Action
+- Added a Nautobot version to the testing matrix in CI
+- Bumped `oauthlib` to 3.2.1
+- Unpinned `responses` testing library
+
+### Fixed
+
+- Exception raised when a vm doesn't have any disks.
+- Filtering logic was missing to aggregate VM's from nautobot, if defined in job args
+- Documentation pointed to invalid configuration values
+
+### Removed
+
 ## [0.1.3] - 2022-08-13
 
 ### Added

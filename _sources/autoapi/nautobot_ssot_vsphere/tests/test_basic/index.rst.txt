@@ -28,7 +28,7 @@ Classes
 
    Test Version is the same.
 
-   .. py:method:: test_version(self)
+   .. py:method:: test_version()
 
       Verify that pyproject.toml version is same as version specified in the package.
 

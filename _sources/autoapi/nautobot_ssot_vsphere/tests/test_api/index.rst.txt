@@ -41,12 +41,12 @@ Attributes
 
    Test the vSphere API.
 
-   .. py:method:: setUp(self)
+   .. py:method:: setUp()
 
       Create a superuser and token for API calls.
 
 
-   .. py:method:: test_placeholder(self)
+   .. py:method:: test_placeholder()
 
       Verify that devices can be listed.
 

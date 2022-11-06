@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nautobot_ssot_vsphere.diffsync.adapters &mdash; Nautobot SSOT vSphere 0.1.3 documentation</title>
+  <title>nautobot_ssot_vsphere.diffsync.adapters &mdash; Nautobot SSOT vSphere 0.1.4 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -17,6 +17,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -151,7 +152,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.sync_complete">
-<span class="sig-name descname"><span class="pre">sync_complete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">diffsync.DiffSync</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.sync_complete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">sync_complete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">diffsync.DiffSync</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.sync_complete" title="Permalink to this definition"></a></dt>
 <dd><p>Clean up function for DiffSync sync.</p>
 <p>Once the sync is complete, this function runs deleting any objects
 from Nautobot that need to be deleted in a specific order.</p>
@@ -163,7 +164,7 @@ from Nautobot that need to be deleted in a specific order.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.get_initial_cluster">
-<span class="sig-name descname"><span class="pre">get_initial_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssot_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nautobot.extras.models.Tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.get_initial_cluster" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_initial_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssot_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nautobot.extras.models.Tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.get_initial_cluster" title="Permalink to this definition"></a></dt>
 <dd><p>Identify the site objects based on user defined job inputs.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>ssot_tag (Tag): Tag used for filtering</p>
@@ -173,44 +174,54 @@ from Nautobot that need to be deleted in a specific order.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_clustergroups">
-<span class="sig-name descname"><span class="pre">load_clustergroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_clustergroups" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_clustergroups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_clustergroups" title="Permalink to this definition"></a></dt>
 <dd><p>Load Cluster Groups.</p>
 <p>This can be impacted by the Cluster Filter.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.get_initial_vms">
+<span class="sig-name descname"><span class="pre">get_initial_vms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssot_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nautobot.extras.models.Tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.get_initial_vms" title="Permalink to this definition"></a></dt>
+<dd><p>Identify the VirtualMachine objects based on user defined job inputs.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>ssot_tag (Tag): Tag used for filtering</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_virtual_machines">
-<span class="sig-name descname"><span class="pre">load_virtual_machines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_virtual_machines" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_virtual_machines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssot_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">nautobot.extras.models.Tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_virtual_machines" title="Permalink to this definition"></a></dt>
 <dd><p>Load Nautobot Virtual Machines.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_ipaddress">
-<span class="sig-name descname"><span class="pre">load_ipaddress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nautobot_vm_interface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vminterface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vm_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_ipaddress" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_ipaddress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nautobot_vm_interface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vminterface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vm_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_ipaddress" title="Permalink to this definition"></a></dt>
 <dd><p>Load Interface IP Addresses.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_vm_interfaces">
-<span class="sig-name descname"><span class="pre">load_vm_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nautobot_virtual_machine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vm_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_vm_interfaces" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_vm_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nautobot_virtual_machine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vm_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_vm_interfaces" title="Permalink to this definition"></a></dt>
 <dd><p>Load VM Interfaces.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_clusters">
-<span class="sig-name descname"><span class="pre">load_clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssot_tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_clusters" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssot_tag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_clusters" title="Permalink to this definition"></a></dt>
 <dd><p>Load Clusters.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_data">
-<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load_data" title="Permalink to this definition"></a></dt>
 <dd><p>Add Nautobot Site objects as DiffSync Location models.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.NautobotDiffSync.load" title="Permalink to this definition"></a></dt>
 <dd><p>Load data from Nautobot.</p>
 </dd></dl>
 
@@ -223,50 +234,50 @@ from Nautobot that need to be deleted in a specific order.</p>
 <p>Nautobot adapter for DiffSync.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_cluster_groups">
-<span class="sig-name descname"><span class="pre">load_cluster_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_cluster_groups" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_cluster_groups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_cluster_groups" title="Permalink to this definition"></a></dt>
 <dd><p>Load Cluster Groups (DataCenters).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_virtualmachines">
-<span class="sig-name descname"><span class="pre">load_virtualmachines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_cluster</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_virtualmachines" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_virtualmachines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_cluster</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_virtualmachines" title="Permalink to this definition"></a></dt>
 <dd><p>Load Virtual Machines.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_ip_addresses">
-<span class="sig-name descname"><span class="pre">load_ip_addresses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsphere_vm_interfaces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mac_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vminterface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_ip_addresses" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_ip_addresses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vsphere_vm_interfaces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mac_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_vminterface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_ip_addresses" title="Permalink to this definition"></a></dt>
 <dd><p>Load VM IP Addresses into Interfaces.</p>
 <p>Compare the current NIC MAC to grab any IP’s associated.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_primary_ip">
-<span class="sig-name descname"><span class="pre">load_primary_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv4_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv6_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_virtualmachine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_primary_ip" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_primary_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ipv4_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipv6_addresses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_virtualmachine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_primary_ip" title="Permalink to this definition"></a></dt>
 <dd><p>Determine Primary IP of Virtual Machine.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_vm_interfaces">
-<span class="sig-name descname"><span class="pre">load_vm_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vsphere_virtual_machine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vm_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_virtualmachine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_vm_interfaces" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_vm_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vsphere_virtual_machine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vm_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync_virtualmachine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_vm_interfaces" title="Permalink to this definition"></a></dt>
 <dd><p>Load VM Interfaces.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_data">
-<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_data" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_data" title="Permalink to this definition"></a></dt>
 <dd><p>Load all clusters from vSphere.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_standalone_vms">
-<span class="sig-name descname"><span class="pre">load_standalone_vms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_standalone_vms" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load_standalone_vms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load_standalone_vms" title="Permalink to this definition"></a></dt>
 <dd><p>Load all VM’s from vSphere.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load">
-<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.adapters.VsphereDiffSync.load" title="Permalink to this definition"></a></dt>
 <dd><p>Load data from vSphere.</p>
 </dd></dl>
 

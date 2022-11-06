@@ -28,7 +28,7 @@ Classes
 
    Publish command to bootstrap dummy data.
 
-   .. py:method:: handle(self, *args, **options)
+   .. py:method:: handle(*args, **options)
 
       Publish command to bootstrap dummy data.
 

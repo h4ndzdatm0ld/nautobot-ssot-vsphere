@@ -97,24 +97,24 @@ Attributes
 
       
 
-   .. py:method:: data_mappings(cls)
+   .. py:method:: data_mappings()
       :classmethod:
 
       List describing the data mappings involved in this DataSource.
 
 
-   .. py:method:: config_information(cls)
+   .. py:method:: config_information()
       :classmethod:
 
       Configuration of this DataSource.
 
 
-   .. py:method:: log_debug(self, message)
+   .. py:method:: log_debug(message)
 
       Conditionally log a debug message.
 
 
-   .. py:method:: sync_data(self)
+   .. py:method:: sync_data()
 
       Sync a device data from vSphere into Nautobot.
 

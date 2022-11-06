@@ -71,7 +71,7 @@ Attributes
 
    
 
-.. py:class:: NautobotSsotVsphereConfig(app_name, app_module)
+.. py:class:: NautobotSsotVsphereConfig
 
    Bases: :py:obj:`nautobot.extras.plugins.PluginConfig`
 
@@ -132,7 +132,7 @@ Attributes
 
       
 
-   .. py:method:: ready(self)
+   .. py:method:: ready()
 
       Ready signal.
 

@@ -78,7 +78,7 @@ Classes
 
       
 
-   .. py:method:: sync_complete(self, source: diffsync.DiffSync, *args, **kwargs)
+   .. py:method:: sync_complete(source: diffsync.DiffSync, *args, **kwargs)
 
       Clean up function for DiffSync sync.
 
@@ -89,7 +89,7 @@ Classes
           source (DiffSync): DiffSync
 
 
-   .. py:method:: get_initial_cluster(self, ssot_tag: nautobot.extras.models.Tag)
+   .. py:method:: get_initial_cluster(ssot_tag: nautobot.extras.models.Tag)
 
       Identify the site objects based on user defined job inputs.
 
@@ -97,39 +97,47 @@ Classes
           ssot_tag (Tag): Tag used for filtering
 
 
-   .. py:method:: load_clustergroups(self)
+   .. py:method:: load_clustergroups()
 
       Load Cluster Groups.
 
       This can be impacted by the Cluster Filter.
 
 
-   .. py:method:: load_virtual_machines(self)
+   .. py:method:: get_initial_vms(ssot_tag: nautobot.extras.models.Tag)
+
+      Identify the VirtualMachine objects based on user defined job inputs.
+
+      Args:
+          ssot_tag (Tag): Tag used for filtering
+
+
+   .. py:method:: load_virtual_machines(ssot_tag: nautobot.extras.models.Tag)
 
       Load Nautobot Virtual Machines.
 
 
-   .. py:method:: load_ipaddress(self, nautobot_vm_interface, diffsync_vminterface, diffsync_vm_object)
+   .. py:method:: load_ipaddress(nautobot_vm_interface, diffsync_vminterface, diffsync_vm_object)
 
       Load Interface IP Addresses.
 
 
-   .. py:method:: load_vm_interfaces(self, nautobot_virtual_machine, diffsync_vm_object)
+   .. py:method:: load_vm_interfaces(nautobot_virtual_machine, diffsync_vm_object)
 
       Load VM Interfaces.
 
 
-   .. py:method:: load_clusters(self, ssot_tag)
+   .. py:method:: load_clusters(ssot_tag)
 
       Load Clusters.
 
 
-   .. py:method:: load_data(self)
+   .. py:method:: load_data()
 
       Add Nautobot Site objects as DiffSync Location models.
 
 
-   .. py:method:: load(self)
+   .. py:method:: load()
 
       Load data from Nautobot.
 
@@ -141,44 +149,44 @@ Classes
 
    Nautobot adapter for DiffSync.
 
-   .. py:method:: load_cluster_groups(self)
+   .. py:method:: load_cluster_groups()
 
       Load Cluster Groups (DataCenters).
 
 
-   .. py:method:: load_virtualmachines(self, cluster, diffsync_cluster)
+   .. py:method:: load_virtualmachines(cluster, diffsync_cluster)
 
       Load Virtual Machines.
 
 
-   .. py:method:: load_ip_addresses(self, vsphere_vm_interfaces, mac_address, diffsync_vminterface)
+   .. py:method:: load_ip_addresses(vsphere_vm_interfaces, mac_address, diffsync_vminterface)
 
       Load VM IP Addresses into Interfaces.
 
       Compare the current NIC MAC to grab any IP's associated.
 
 
-   .. py:method:: load_primary_ip(self, ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine)
+   .. py:method:: load_primary_ip(ipv4_addresses: List, ipv6_addresses: List, diffsync_virtualmachine)
 
       Determine Primary IP of Virtual Machine.
 
 
-   .. py:method:: load_vm_interfaces(self, vsphere_virtual_machine, vm_id, diffsync_virtualmachine)
+   .. py:method:: load_vm_interfaces(vsphere_virtual_machine, vm_id, diffsync_virtualmachine)
 
       Load VM Interfaces.
 
 
-   .. py:method:: load_data(self)
+   .. py:method:: load_data()
 
       Load all clusters from vSphere.
 
 
-   .. py:method:: load_standalone_vms(self)
+   .. py:method:: load_standalone_vms()
 
       Load all VM's from vSphere.
 
 
-   .. py:method:: load(self)
+   .. py:method:: load()
 
       Load data from vSphere.
 

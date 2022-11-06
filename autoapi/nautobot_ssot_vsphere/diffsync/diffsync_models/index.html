@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nautobot_ssot_vsphere.diffsync.diffsync_models &mdash; Nautobot SSOT vSphere 0.1.3 documentation</title>
+  <title>nautobot_ssot_vsphere.diffsync.diffsync_models &mdash; Nautobot SSOT vSphere 0.1.4 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -17,6 +17,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -113,7 +114,7 @@
 <p>Additional components to mix and subclass from with <cite>DiffSyncModel</cite>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras.ordered_delete">
-<span class="sig-name descname"><span class="pre">ordered_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nautobot_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras.ordered_delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">ordered_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nautobot_object</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncExtras.ordered_delete" title="Permalink to this definition"></a></dt>
 <dd><p>Add to <cite>objects_to_delete</cite> for ordered deletion.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>nautobot_object (Any): Any type of Nautobot object
@@ -152,13 +153,13 @@ as some objects don’t have status field. Defaults to None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.create" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.create" title="Permalink to this definition"></a></dt>
 <dd><p>Create ClusterGroup.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncClusterGroup.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Delete Cluster Group in Nautobot.</p>
 </dd></dl>
 
@@ -211,19 +212,19 @@ as some objects don’t have status field. Defaults to None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.create" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.create" title="Permalink to this definition"></a></dt>
 <dd><p>Create Objects in Nautobot.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Delete device in Nautobot.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncCluster.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update devices in Nautbot based on Source.</p>
 </dd></dl>
 
@@ -281,19 +282,19 @@ as some objects don’t have status field. Defaults to None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.create" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.create" title="Permalink to this definition"></a></dt>
 <dd><p>Create VirtualMachine VMInterface in Nautobot.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Delete VMInterfaces from Virtual Machine.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVMInterface.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update VMInterface on Virtual Machine.</p>
 </dd></dl>
 
@@ -351,19 +352,19 @@ as some objects don’t have status field. Defaults to None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.create" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.create" title="Permalink to this definition"></a></dt>
 <dd><p>Create IP Address in Nautobot.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Delete VMInterfaces from Virtual Machine.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncIpAddress.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update VMInterface on Virtual Machine.</p>
 </dd></dl>
 
@@ -431,19 +432,19 @@ as some objects don’t have status field. Defaults to None.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.create">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.create" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffsync</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.create" title="Permalink to this definition"></a></dt>
 <dd><p>Create VirtualMachine in Nautobot.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.delete" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">diffsync.DiffSyncModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.delete" title="Permalink to this definition"></a></dt>
 <dd><p>Delete Virtual Machine.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.update" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.diffsync.diffsync_models.DiffSyncVirtualMachine.update" title="Permalink to this definition"></a></dt>
 <dd><p>Update Virtual Machine.</p>
 </dd></dl>
 

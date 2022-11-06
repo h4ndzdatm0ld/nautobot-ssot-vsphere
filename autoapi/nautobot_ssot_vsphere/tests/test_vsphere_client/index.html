@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nautobot_ssot_vsphere.tests.test_vsphere_client &mdash; Nautobot SSOT vSphere 0.1.3 documentation</title>
+  <title>nautobot_ssot_vsphere.tests.test_vsphere_client &mdash; Nautobot SSOT vSphere 0.1.4 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
@@ -17,6 +17,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -112,102 +113,102 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.tests.test_vsphere_client.</span></span><span class="sig-name descname"><span class="pre">TestVsphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nautobot_ssot_vsphere.tests.test_vsphere_client.</span></span><span class="sig-name descname"><span class="pre">TestVsphere</span></span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">nautobot.utilities.testing.TestCase</span></code></p>
 <p>Test Base vSphere Client and Calls.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.setUp">
-<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock_session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.setUp" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mock_session</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.setUp" title="Permalink to this definition"></a></dt>
 <dd><p>Setup.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_success">
-<span class="sig-name descname"><span class="pre">test_init_success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_success" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_init_success</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_success" title="Permalink to this definition"></a></dt>
 <dd><p>Assert proper initialization of client.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_missing_uri">
-<span class="sig-name descname"><span class="pre">test_init_missing_uri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_missing_uri" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_init_missing_uri</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_missing_uri" title="Permalink to this definition"></a></dt>
 <dd><p>Assert proper initialization of client, raise ValErr from creds/uri.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_uri_not_str">
-<span class="sig-name descname"><span class="pre">test_init_uri_not_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_uri_not_str" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_init_uri_not_str</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_init_uri_not_str" title="Permalink to this definition"></a></dt>
 <dd><p>Assert proper initialization of client, failure from uri not a str.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_ssl_not_verify">
-<span class="sig-name descname"><span class="pre">test_ssl_not_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_ssl_not_verify" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_ssl_not_verify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_ssl_not_verify" title="Permalink to this definition"></a></dt>
 <dd><p>Test verify SSL False.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms">
-<span class="sig-name descname"><span class="pre">test_get_vms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_vms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get VMs API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms_from_cluster">
-<span class="sig-name descname"><span class="pre">test_get_vms_from_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms_from_cluster" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_vms_from_cluster</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms_from_cluster" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get VMs from cluster API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms_from_dc">
-<span class="sig-name descname"><span class="pre">test_get_vms_from_dc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms_from_dc" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_vms_from_dc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vms_from_dc" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get VMs from DC API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_datacenters">
-<span class="sig-name descname"><span class="pre">test_get_datacenters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_datacenters" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_datacenters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_datacenters" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get DC’s API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_clusters">
-<span class="sig-name descname"><span class="pre">test_get_clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_clusters" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_clusters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_clusters" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get Clusters API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_cluster_details">
-<span class="sig-name descname"><span class="pre">test_get_cluster_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_cluster_details" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_cluster_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_cluster_details" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get Clusters Detail API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_dc_details">
-<span class="sig-name descname"><span class="pre">test_get_dc_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_dc_details" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_dc_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_dc_details" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get DC Details API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vm_interfaces">
-<span class="sig-name descname"><span class="pre">test_get_vm_interfaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vm_interfaces" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_vm_interfaces</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vm_interfaces" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get VM Interface Details API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vm_details">
-<span class="sig-name descname"><span class="pre">test_get_vm_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vm_details" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_vm_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_vm_details" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get VM Details API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_host_from_clusters">
-<span class="sig-name descname"><span class="pre">test_get_host_from_clusters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_host_from_clusters" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_host_from_clusters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_host_from_clusters" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get host from clusters API Call.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_host_details">
-<span class="sig-name descname"><span class="pre">test_get_host_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_host_details" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">test_get_host_details</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nautobot_ssot_vsphere.tests.test_vsphere_client.TestVsphere.test_get_host_details" title="Permalink to this definition"></a></dt>
 <dd><p>Test Get host details API Call.</p>
 </dd></dl>
 

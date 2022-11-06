@@ -39,7 +39,7 @@ Attributes
 
    Class for interacting with VMWare vSphere.
 
-   .. py:method:: _request(self, method: str, path: str, **kwargs)
+   .. py:method:: _request(method: str, path: str, **kwargs)
 
       Return a response object after making a request to by other methods.
 
@@ -51,62 +51,62 @@ Attributes
           :class:`~requests.Response`: Response from the API.
 
 
-   .. py:method:: get_vms(self) -> Dict
+   .. py:method:: get_vms() -> Dict
 
       Get VMs.
 
 
-   .. py:method:: get_vms_from_cluster(self, cluster: str) -> Dict
+   .. py:method:: get_vms_from_cluster(cluster: str) -> Dict
 
       Get VMs.
 
 
-   .. py:method:: get_vms_from_dc(self, datacenter: str) -> Dict
+   .. py:method:: get_vms_from_dc(datacenter: str) -> Dict
 
       Get VMs.
 
 
-   .. py:method:: get_datacenters(self) -> Dict
+   .. py:method:: get_datacenters() -> Dict
 
       Get datacenters.
 
 
-   .. py:method:: get_datacenter_details(self, datacenter: str) -> Dict
+   .. py:method:: get_datacenter_details(datacenter: str) -> Dict
 
       Get datacenters.
 
 
-   .. py:method:: get_clusters(self) -> Dict
+   .. py:method:: get_clusters() -> Dict
 
       Get Clusters.
 
 
-   .. py:method:: get_clusters_from_dc(self, datacenter: str) -> Dict
+   .. py:method:: get_clusters_from_dc(datacenter: str) -> Dict
 
       Get Clusters.
 
 
-   .. py:method:: get_cluster_details(self, cluster_name: str) -> Dict
+   .. py:method:: get_cluster_details(cluster_name: str) -> Dict
 
       Get Clusters.
 
 
-   .. py:method:: get_vm_details(self, vm_id: str) -> Dict
+   .. py:method:: get_vm_details(vm_id: str) -> Dict
 
       Get all VMs details.
 
 
-   .. py:method:: get_host_from_cluster(self, cluster: str) -> Dict
+   .. py:method:: get_host_from_cluster(cluster: str) -> Dict
 
       Get hosts from cluster.
 
 
-   .. py:method:: get_host_details(self, host: str) -> Dict
+   .. py:method:: get_host_details(host: str) -> Dict
 
       Get host details.
 
 
-   .. py:method:: get_vm_interfaces(self, vm_id: str) -> Dict
+   .. py:method:: get_vm_interfaces(vm_id: str) -> Dict
 
       Get all VM interfaces.
 

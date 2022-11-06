@@ -33,7 +33,7 @@ Classes
 
    Additional components to mix and subclass from with `DiffSyncModel`.
 
-   .. py:method:: ordered_delete(self, nautobot_object: Any)
+   .. py:method:: ordered_delete(nautobot_object: Any)
 
       Add to `objects_to_delete` for ordered deletion.
 
@@ -70,13 +70,13 @@ Classes
 
       
 
-   .. py:method:: create(cls, diffsync, ids, attrs)
+   .. py:method:: create(diffsync, ids, attrs)
       :classmethod:
 
       Create ClusterGroup.
 
 
-   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+   .. py:method:: delete() -> Optional[diffsync.DiffSyncModel]
 
       Delete Cluster Group in Nautobot.
 
@@ -128,18 +128,18 @@ Classes
 
       
 
-   .. py:method:: create(cls, diffsync, ids, attrs)
+   .. py:method:: create(diffsync, ids, attrs)
       :classmethod:
 
       Create Objects in Nautobot.
 
 
-   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+   .. py:method:: delete() -> Optional[diffsync.DiffSyncModel]
 
       Delete device in Nautobot.
 
 
-   .. py:method:: update(self, attrs)
+   .. py:method:: update(attrs)
 
       Update devices in Nautbot based on Source.
 
@@ -196,18 +196,18 @@ Classes
 
       
 
-   .. py:method:: create(cls, diffsync, ids, attrs)
+   .. py:method:: create(diffsync, ids, attrs)
       :classmethod:
 
       Create VirtualMachine VMInterface in Nautobot.
 
 
-   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+   .. py:method:: delete() -> Optional[diffsync.DiffSyncModel]
 
       Delete VMInterfaces from Virtual Machine.
 
 
-   .. py:method:: update(self, attrs)
+   .. py:method:: update(attrs)
 
       Update VMInterface on Virtual Machine.
 
@@ -264,18 +264,18 @@ Classes
 
       
 
-   .. py:method:: create(cls, diffsync, ids, attrs)
+   .. py:method:: create(diffsync, ids, attrs)
       :classmethod:
 
       Create IP Address in Nautobot.
 
 
-   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+   .. py:method:: delete() -> Optional[diffsync.DiffSyncModel]
 
       Delete VMInterfaces from Virtual Machine.
 
 
-   .. py:method:: update(self, attrs)
+   .. py:method:: update(attrs)
 
       Update VMInterface on Virtual Machine.
 
@@ -342,18 +342,18 @@ Classes
 
       
 
-   .. py:method:: create(cls, diffsync, ids, attrs)
+   .. py:method:: create(diffsync, ids, attrs)
       :classmethod:
 
       Create VirtualMachine in Nautobot.
 
 
-   .. py:method:: delete(self) -> Optional[diffsync.DiffSyncModel]
+   .. py:method:: delete() -> Optional[diffsync.DiffSyncModel]
 
       Delete Virtual Machine.
 
 
-   .. py:method:: update(self, attrs)
+   .. py:method:: update(attrs)
 
       Update Virtual Machine.
 

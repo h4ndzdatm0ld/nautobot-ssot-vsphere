@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview of Nautobot SSoT vSphere &mdash; Nautobot SSOT vSphere 0.1.3 documentation</title>
+  <title>Overview of Nautobot SSoT vSphere &mdash; Nautobot SSOT vSphere 0.1.4 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -17,6 +17,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -80,8 +81,10 @@
              
   <section id="overview-of-nautobot-ssot-vsphere">
 <h1>Overview of Nautobot SSoT vSphere<a class="headerlink" href="#overview-of-nautobot-ssot-vsphere" title="Permalink to this heading"></a></h1>
+<p>A plugin for <a class="reference external" href="https://github.com/nautobot/nautobot">Nautobot</a> that leverages the SSoT plugin to create Virtual Machines, VMInterfaces, IPAddresses, Clusters, and Cluster Groups from VMWare vSphere.</p>
 <section id="configuration-settings">
 <h2>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Permalink to this heading"></a></h2>
+<p>The following options are user configurable to <em>attempt</em> to provide the user with a better synchronization experience, depending on what the environment’s deployment looks like. All of the options below have default values set and you most likely for the most common deployment of vSphere / DataCenters / Clusters.</p>
 <p><code class="docutils literal notranslate"><span class="pre">VSPHERE_TYPE</span></code></p>
 <ul class="simple">
 <li><p>This is the default Cluster Type that will be created in Nautobot and associated to every Cluster discovered.</p></li>
@@ -90,13 +93,24 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Diffsync</span></code> has a concept of <code class="docutils literal notranslate"><span class="pre">Top</span> <span class="pre">Level</span></code>. This application defaults to the <code class="docutils literal notranslate"><span class="pre">ClusterGroup</span></code> as Top Level, which translates to a vSphere DataCenter. This can be changed to have a Cluster in vSphere be the Top Level and ignore DataCenters.</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">VSPHERE_VM_STATUS_MAP,</span> <span class="pre">VSPHERE_IP_STATUS_MAP,</span> <span class="pre">VSPHERE_VM_INTERFACE_MAP</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">DEFAULT_VM_STATUS_MAP,</span> <span class="pre">DEFAULT_IP_STATUS_MAP,</span> <span class="pre">VSPHERE_VM_INTERFACE_MAP</span></code></p>
 <ul class="simple">
 <li><p>These are dictionary (maps) that translate the vSphere value to something Nautobot can understand. You must be sure that the values provided are valid before manipulating these maps.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT_VM_STATUS_MAP</span></code> Defaults to</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>- <span class="sb">`</span>VSPHERE_VM_STATUS_MAP<span class="sb">`</span> Defaults to <span class="o">{</span><span class="s2">&quot;POWERED_OFF&quot;</span>: <span class="s2">&quot;Offline&quot;</span>, <span class="s2">&quot;POWERED_ON&quot;</span>: <span class="s2">&quot;Active&quot;</span><span class="o">}</span>
-- <span class="sb">`</span>VSPHERE_IP_STATUS_MAP<span class="sb">`</span> Defaults to <span class="o">{</span><span class="s2">&quot;PREFERRED&quot;</span>: <span class="s2">&quot;Active&quot;</span>, <span class="s2">&quot;UNKNOWN&quot;</span>: <span class="s2">&quot;Reserved&quot;</span><span class="o">}</span>
-- <span class="sb">`</span>VSPHERE_VM_INTERFACE_MAP<span class="sb">`</span> Defaults to <span class="o">{</span><span class="s2">&quot;NOT_CONNECTED&quot;</span>: False, <span class="s2">&quot;CONNECTED&quot;</span>: True<span class="o">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;POWERED_OFF&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Offline&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;POWERED_ON&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;SUSPENDED&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Suspended&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT_IP_STATUS_MAP</span></code> Defaults to</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;PREFERRED&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;UNKNOWN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Reserved&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">VSPHERE_VM_INTERFACE_MAP</span></code> Defaults to</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{&quot;NOT_CONNECTED&quot;: False, &quot;CONNECTED&quot;: True}
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">PRIMARY_IP_SORT_BY</span></code></p>
@@ -111,6 +125,13 @@
 <ul class="simple">
 <li><p>Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code> and drops any link-local address found on a vSphere vm that has an IPv6 address assigned.</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">DEFAULT_IP_STATUS_MAP</span></code></p>
+<ul class="simple">
+<li><p>This allows you to change what the <code class="docutils literal notranslate"><span class="pre">Status</span></code> of an interface maps to from vSphere -&gt; Nautobot. Defaults to the following:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;PREFERRED&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Active&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;UNKNOWN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Reserved&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 </section>
 </section>
 

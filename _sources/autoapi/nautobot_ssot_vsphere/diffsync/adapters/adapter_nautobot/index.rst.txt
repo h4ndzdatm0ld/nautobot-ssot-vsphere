@@ -58,7 +58,7 @@ Classes
 
       
 
-   .. py:method:: sync_complete(self, source: diffsync.DiffSync, *args, **kwargs)
+   .. py:method:: sync_complete(source: diffsync.DiffSync, *args, **kwargs)
 
       Clean up function for DiffSync sync.
 
@@ -69,7 +69,7 @@ Classes
           source (DiffSync): DiffSync
 
 
-   .. py:method:: get_initial_cluster(self, ssot_tag: nautobot.extras.models.Tag)
+   .. py:method:: get_initial_cluster(ssot_tag: nautobot.extras.models.Tag)
 
       Identify the site objects based on user defined job inputs.
 
@@ -77,39 +77,47 @@ Classes
           ssot_tag (Tag): Tag used for filtering
 
 
-   .. py:method:: load_clustergroups(self)
+   .. py:method:: load_clustergroups()
 
       Load Cluster Groups.
 
       This can be impacted by the Cluster Filter.
 
 
-   .. py:method:: load_virtual_machines(self)
+   .. py:method:: get_initial_vms(ssot_tag: nautobot.extras.models.Tag)
+
+      Identify the VirtualMachine objects based on user defined job inputs.
+
+      Args:
+          ssot_tag (Tag): Tag used for filtering
+
+
+   .. py:method:: load_virtual_machines(ssot_tag: nautobot.extras.models.Tag)
 
       Load Nautobot Virtual Machines.
 
 
-   .. py:method:: load_ipaddress(self, nautobot_vm_interface, diffsync_vminterface, diffsync_vm_object)
+   .. py:method:: load_ipaddress(nautobot_vm_interface, diffsync_vminterface, diffsync_vm_object)
 
       Load Interface IP Addresses.
 
 
-   .. py:method:: load_vm_interfaces(self, nautobot_virtual_machine, diffsync_vm_object)
+   .. py:method:: load_vm_interfaces(nautobot_virtual_machine, diffsync_vm_object)
 
       Load VM Interfaces.
 
 
-   .. py:method:: load_clusters(self, ssot_tag)
+   .. py:method:: load_clusters(ssot_tag)
 
       Load Clusters.
 
 
-   .. py:method:: load_data(self)
+   .. py:method:: load_data()
 
       Add Nautobot Site objects as DiffSync Location models.
 
 
-   .. py:method:: load(self)
+   .. py:method:: load()
 
       Load data from Nautobot.
 
