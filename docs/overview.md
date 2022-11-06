@@ -1,6 +1,10 @@
 # Overview of Nautobot SSoT vSphere
 
+A plugin for [Nautobot](https://github.com/nautobot/nautobot) that leverages the SSoT plugin to create Virtual Machines, VMInterfaces, IPAddresses, Clusters, and Cluster Groups from VMWare vSphere.
+
 ## Configuration Settings
+
+The following options are user configurable to _attempt_ to provide the user with a better synchronization experience, depending on what the environment's deployment looks like. All of the options below have default values set and you most likely for the most common deployment of vSphere / DataCenters / Clusters.
 
 `VSPHERE_TYPE`
 
@@ -10,14 +14,26 @@
 
 - `Diffsync` has a concept of `Top Level`. This application defaults to the `ClusterGroup` as Top Level, which translates to a vSphere DataCenter. This can be changed to have a Cluster in vSphere be the Top Level and ignore DataCenters.
 
-`VSPHERE_VM_STATUS_MAP, VSPHERE_IP_STATUS_MAP, VSPHERE_VM_INTERFACE_MAP`
+`DEFAULT_VM_STATUS_MAP, DEFAULT_IP_STATUS_MAP, VSPHERE_VM_INTERFACE_MAP`
 
 - These are dictionary (maps) that translate the vSphere value to something Nautobot can understand. You must be sure that the values provided are valid before manipulating these maps.
 
-```bash
-- `VSPHERE_VM_STATUS_MAP` Defaults to {"POWERED_OFF": "Offline", "POWERED_ON": "Active", "SUSPENDED": "Suspended"}
-- `VSPHERE_IP_STATUS_MAP` Defaults to {"PREFERRED": "Active", "UNKNOWN": "Reserved"}
-- `VSPHERE_VM_INTERFACE_MAP` Defaults to {"NOT_CONNECTED": False, "CONNECTED": True}
+- `DEFAULT_VM_STATUS_MAP` Defaults to
+
+```json
+{ "POWERED_OFF": "Offline", "POWERED_ON": "Active", "SUSPENDED": "Suspended" }
+```
+
+- `DEFAULT_IP_STATUS_MAP` Defaults to
+
+```json
+{ "PREFERRED": "Active", "UNKNOWN": "Reserved" }
+```
+
+- `VSPHERE_VM_INTERFACE_MAP` Defaults to
+
+```json
+{"NOT_CONNECTED": False, "CONNECTED": True}
 ```
 
 `PRIMARY_IP_SORT_BY`
@@ -31,3 +47,11 @@
 `DEFAULT_IGNORE_LINK_LOCAL`
 
 - Defaults to `True` and drops any link-local address found on a vSphere vm that has an IPv6 address assigned.
+
+`DEFAULT_IP_STATUS_MAP`
+
+- This allows you to change what the `Status` of an interface maps to from vSphere -> Nautobot. Defaults to the following:
+
+```json
+{ "PREFERRED": "Active", "UNKNOWN": "Reserved" }
+```
