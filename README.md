@@ -30,7 +30,7 @@ Once installed, the plugin needs to be enabled in your `nautobot_config.py`
 
 ```python
 # In your nautobot_config.py
-PLUGINS = ["nautobot_ssot_vsphere"]
+PLUGINS = ["nautobot_ssot_vsphere", "nautobot_ssot"]
 
 PLUGINS_CONFIG = {
     "nautobot_ssot_vsphere": {
