@@ -1,3 +1,5 @@
+# The code in this repository has been migrated to the [Nautobot SSoT Repository](https://github.com/nautobot/nautobot-plugin-ssot) as an integration - read more about it in the [SSoT Docs](https://docs.nautobot.com/projects/ssot/en/latest/admin/install/)! As of June 2025 this repository has been **FROZEN** - all development / issues / discussions for this integration are in the [Nautobot SSoT Repository](https://github.com/nautobot/nautobot-plugin-ssot) going forward. \nThank you so much to [@h4ndzdatm0ld](https://github.com/h4ndzdatm0ld) for letting us fork and use his repo!
+
 # Nautobot SSoT vSphere
 
 A plugin for [Nautobot](https://github.com/nautobot/nautobot) that leverages the SSoT plugin to create Virtual Machines, VMInterfaces, IPAddresses, Clusters, and Cluster Groups from VMWare vSphere.
